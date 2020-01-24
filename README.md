@@ -1,6 +1,7 @@
 # ADVANCE EIMS
 Education Institute Management System All in one system for education especially for Indian schools. This software will cover all school requirements from admission to Transfer. After Completion of all reachers and requirements according to your locality database and designing process will be started. The development will begin with basic requirements and other useful features will be a part of future development.
 Project source code available free for commercial and personal use.
+
 All contributors are most welcome. please provide your suggestions to make a good and useful software product. help us to research and development. Thanks 
 
 NOTE: kindly read the following table of content for more information. 
