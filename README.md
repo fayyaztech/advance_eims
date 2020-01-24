@@ -1,5 +1,6 @@
 # ADVANCE EIMS
-Education Institute Management System
+Education Institute Management System 
+All in one system for education specially for indian schools. Admission to TC facilities. All contributes most welcome. After Done all reachers and requirements according to your locality database and designing process will be start. Development initialize with basic requirement extra and other requirement add into future development. Project source available free for commercial and personal use. 
 
 ## Table of contents
 * [Dependencies](#**Dependency**)
@@ -7,12 +8,19 @@ Education Institute Management System
 
 
 ## **Dependency**
+* Language for development PHP
+* Framework not decided ye it may be a Laravel or Codeigniter
+* Database MySql
 
 
 ## User Access
 * [Admin Login](#Admin-Login)
 * [Accountant Login](#Acountant-Login)
 * [Teacher Login](#Teacher-Login)
+### Upcoming users
+* [Librarian](#)
+* [Parents](#)
+* [Transport](#)
 
 # Features
 
@@ -37,6 +45,7 @@ Education Institute Management System
 * [User & Role manage with permission grid](#)
 
 ### Upcoming features
+* [Transport Management](#)
 * [SMS Gateway Setup](#)
 * [Email & SMS Template](#)
 * [Attendance notification email/sms](#)
