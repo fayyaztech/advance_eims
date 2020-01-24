@@ -13,7 +13,7 @@ NOTE: kindly read the following table of content for more information.
 
 ## **Dependency**
 * Language for development PHP7
-* Framework not decided ye it may be a Laravel or Codeigniter
+* Framework not decided yet it may be a Laravel or Codeigniter
 * Database MySql
 
 
