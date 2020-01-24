@@ -8,7 +8,7 @@ All in one system for education specially for indian schools. Admission to TC fa
 
 
 ## **Dependency**
-* Language for development PHP
+* Language for development PHP7
 * Framework not decided ye it may be a Laravel or Codeigniter
 * Database MySql
 
