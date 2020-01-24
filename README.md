@@ -2,27 +2,27 @@
 Education Institute Management System
 
 ## Table of contents
-* [Technologies](#**Dependency**)
-* [Project Functions](#Features)
+* [Dependencies](#**Dependency**)
+* [Features](#Features)
 
-	
+
 ## **Dependency**
 
 
 ## User Access
- * [Admin Login](#Admin-Login)
- * [Accountant Login](#Acountant-Login)
- * [Receptionist Login](#Receptionist-Login)
- * [Teacher Login](#Teacher-Login)
- * [Parent Login](#Parent-Login)
- * [Custom User](#Custom-User)
+* [Admin Login](#Admin-Login)
+* [Accountant Login](#Acountant-Login)
+* [Teacher Login](#Teacher-Login)
 
- # Features
+# Features
+
+### BackEnd
+* [Institute Setup](#)
 * [Academic Year manage](#)
 * [Academic Calendar Setup](#)
-* [Institute Setup](#)
 * [Class & Section Manage](#)
 * [Subject & Teacher Manage](#)
+* [Parents Management](#)
 * [Student Admission](#)
 * [Student Attendance](#)
 * [Exam & Grading Rule](#)
@@ -30,16 +30,34 @@ Education Institute Management System
 * [Employees Manage](#)
 * [Employees Attendance](#)
 * [Employees Leave](#)
-* [Employees Work Outside](#)
+* [Library Manage](#)
+* [Issue book and fine collection](#)
+* [Account Manage](#)
+* [Hostel & Collection Manage](#)
+* [User & Role manage with permission grid](#)
+
+### Upcoming features
 * [SMS Gateway Setup](#)
 * [Email & SMS Template](#)
 * [Attendance notification email/sms](#)
 * [Id Card templates Manage](#)
 * [Employee & Student id card print](#)
-* [User & Role manage with permission grid](#)
 * [User wise Dashboard](#)
 * [Report Settings](#)
-* [Only 5 Reports](#)
+* [Reports](#)
+* [Student & Employee Id card bulk/mass print](#)
+* [Budget Manage](#)
+* [Account Heads](#)
+* [Student Invoice](#)
+* [Income / Expense Manage](#)
+* [Payroll](#)
+* [Salary Template](#)
+* [Employee Salary Payment](#)
+* [Academic Calendar Print](#)
+* [Bulk SMS and Email Sending](#)
+* [40+ Reports](#)
+
+### Front End
 * [Dynamic Front Website](#)
 * [Website Management Panel](#)
 * [Photo Gallery](#)
@@ -51,19 +69,3 @@ Education Institute Management System
 * [Online Admit Card & Payslip](#)
 * [Student Promotion](#)
 * [Notice Board](#)
-* [Student & Employee Id card bulk/mass print](#)
-* [Account Manage](#)
-* [Budget Manage](#)
-* [Account Heads](#)
-* [Student Invoice](#)
-* [Income / Expense Manage](#)
-* [Payroll](#)
-* [Salary Template](#)
-* [Employee Salary Payment](#)
-* [Hostel & Collection Manage](#)
-* [Library Manage](#)
-* [Issue book and fine collection](#)
-* [Academic Calendar Print](#)
-* [Bulk SMS and Email Sending](#)
-* [40+ Reports](#)
-
