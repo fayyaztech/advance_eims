@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/login','Login@index');
+Route::get('/dashboard','Dashboard@dashboard');
+Route::get('/blank','Dashboard@blank');
