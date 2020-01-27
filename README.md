@@ -92,7 +92,7 @@ NOTE: kindly read the following table of content for more information.
 # Installation Of Software
 ## Installation On Server
 ## Institute Setup
-after installation of the project on the server . shows institute set up page. 
+During the first run of the project, it should display the page for the institute setup.
 institute setup page required 
 - Institute: 
     1. Name
