@@ -7,13 +7,13 @@ All contributors are most welcome. please provide your suggestions to make a goo
 NOTE: kindly read the following table of content for more information. 
 
 ## Table of contents
-* [Dependencies](#**Dependency**)
-* [Versions](#**Versions**)
+* [Dependencies](#Dependency)
+* [Versions](#Versions)
 * [Features](#Features)
 
 ## **Dependency**
 * Language for development PHP7
-* Framework not decided yet it may be a Laravel or Codeigniter
+* Laravel Framework 6.12.0
 * Database MySql
 
 ## **Versions**
@@ -91,6 +91,12 @@ NOTE: kindly read the following table of content for more information.
 
 # Installation Of Software
 ## Installation On Server
+1. run composer install (for install all the dependencies)
+2. rename .env.example to .env 
+3. configure your database name in .env
+4. run migrate:fresh (create tables)
+5. run php artisan serve (run project)
+
 ## Institute Setup
 During the first run of the project, it should display the page for the institute setup.
 institute setup page required 
