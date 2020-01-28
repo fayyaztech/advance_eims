@@ -44,7 +44,7 @@ Academic Year
                         <td>{{$item['name']}}</td>
                         <td>{{$item['start_date']}}</td>
                         <td>{{$item['end_date']}}</td>
-                        <td><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                        <td><a href="/delete_academic_year/{{$item['id']}}"<button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a></td>
                     </tr>
                     @endforeach
                 </tbody>
