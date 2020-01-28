@@ -30,17 +30,17 @@ class Institute extends Controller
         }
         return redirect()->back()->with("message", $msg);
     }
-    
+
     function delete_academic_year($id){
       echo $id;
       $ac = AcademicYear::find($id);
-     
+
 if ($ac->delete()) {
-            $msg = "Year added successfully";
+            $msg = "AcademicYear Deleted successfully";
         } else {
-            $msg = "Year add failed";
+            $msg = "delete operation failed";
         }
         return redirect()->back()->with("message", $msg);
-      
+
     }
-} 
+}
