@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/blank','Dashboard@blank');
+Route::get('/institute_setup','Institute@institute_setup');
+Route::get('/academic_year','Institute@academic_year');
+Route::post('/academic_year','Institute@academic_year_save');
 
 Auth::routes();
 Route::get('/dashboard','Dashboard@dashboard');

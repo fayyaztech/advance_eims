@@ -1,4 +1,7 @@
         @extends('backend.admin.main')
+        @section('title')
+        Dashboard
+        @endsection
         @section('wrapper')
         <div class="dashboard-ecommerce">
             <div class="container-fluid dashboard-content ">

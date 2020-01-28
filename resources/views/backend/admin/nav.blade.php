@@ -153,8 +153,12 @@
                             </li>
 
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/dashboard"><i
+                                <a class="nav-link" href="/institute_setup"><i
                                         class="fa fa-fw fa-building"></i>Institute Setup</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/academic_year"><i
+                                        class="fa fa-fw fa-clock"></i>Academic Year</a>
                             </li>
 
                             <li class="nav-item">
@@ -194,11 +198,11 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/dashboard"><i
+                                <a class="nav-link" href="/dashboard"><i
                                         class="fa fa-fw fa-users"></i>User Management</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/dashboard"><i
+                                <a class="nav-link" href="/dashboard"><i
                                         class="fa fa-fw fa-key"></i>Change Password</a>
                             </li>
                             <li class="nav-item ">
