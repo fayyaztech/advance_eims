@@ -12,8 +12,9 @@ class Dashboard extends Controller
     public function dashboard()
     {
         if (empty(Session("logo"))) {
-            $data =json_decode(DB::table('institute_settings')->select("meta_data")->where("type","institute")->first()->meta_data);
-            Session(['logo'=> $data->name]);
+         if(!null == $q = DB::table('institute_settings')->select("meta_data")->where("type","institute")->first()){
+            $data =json_decode($q->meta_data);
+            Session(['logo'=> $data->name]);}
         }
         return view("backend.admin.dashboard");
     }
