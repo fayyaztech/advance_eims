@@ -85,7 +85,7 @@
                                                 Add Teacher</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/teacher"><i class="fa fa-list"></i> Teacher
+                                            <a class="nav-link" href="/teachers"><i class="fa fa-list"></i> Teacher
                                                 List</a>
                                         </li>
                                     </ul>
