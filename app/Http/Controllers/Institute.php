@@ -5,14 +5,31 @@ namespace App\Http\Controllers;
 use App\AcademicYear;
 use App\institute_settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Institute extends Controller
 {
     public function institute_setup()
     {
-        $is = institute_settings::where("type","institute")->first();
-        print_r($is);
-        return view("backend.institute.setup");
+        $meta_data = [
+            "name" => "",
+            "contact" => "",
+            "email" => "",
+            "address" => "",
+            "logo"=>""
+        ];
+        $setting = DB::table('institute_settings')->where("type", "institute")->first();
+        if ($setting !== null) {
+            $d = json_decode($setting->meta_data);
+            $meta_data = [
+                "name" => "$d->name",
+                "contact" => "$d->contact",
+                "email" => "$d->email",
+                "address" => "$d->address",
+                "logo"=>$d->logo,
+            ];
+        }
+        return view("backend.institute.setup", ["setting" => $meta_data]);
     }
 
     public function academic_year()
@@ -50,7 +67,22 @@ class Institute extends Controller
     public function update_institute_details(Request $request)
     {
         $type = $request->type;
-        $ex = $request->except(['type', '_token']);
+        $request->validate(
+            [
+                "name" => "required",
+                "contact" => "required",
+                "email" => "required",
+                "address" => "required",
+                "logo" => "image|mimes:jpeg,png,jpg,svg,|max:200",
+            ]
+        );
+        if ($file = $request->file("logo")) {
+            $destination_path = "uploads/images";
+            $image = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destination_path, $image);
+        }
+        $ex = $request->except(['type', '_token', 'logo']);
+        $ex['logo'] = $image;
         $check = institute_settings::where("type", $request->type)->first();
         if (!$check) {
             $is = new institute_settings;
