@@ -28,4 +28,5 @@ Route::get('/dashboard','Dashboard@dashboard');
 Route::get('/add_teacher','Teachers@add_teacher_form');
 Route::get('/teachers','Teachers@teachers');
 Route::post('/save_teacher','Teachers@save_teacher');
+Route::get('/delete_teacher/{id}','Teachers@delete_teacher');
 

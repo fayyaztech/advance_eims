@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\teachers as AppTeachers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Teachers extends Controller
 {
@@ -14,7 +15,8 @@ class Teachers extends Controller
 
     public function teachers()
     {
-        return view("backend.teachers.teacher");
+        $teachers = DB::table('teachers')->get();
+        return view("backend.teachers.teacher",["teachers"=>$teachers]);
     }
     public function save_teacher(Request $req)
     {
@@ -23,8 +25,8 @@ class Teachers extends Controller
                 "name" => "required",
                 "contact" => "required",
                 "email" => "required",
-                "dob" => "required",
-                "joining_date" => "required",
+                "dob" => "required|date_format:Y-m-d",
+                "joining_date" => "required|date_format:Y-m-d",
                 "address" => "required",
             ]
         );
@@ -42,8 +44,13 @@ class Teachers extends Controller
         }
         return redirect("/teachers")->with("message", $msg);
     }
-    public function delete_teacher()
+    public function delete_teacher($id)
     {
-
+        if(DB::table('teachers')->where("id",$id)->delete()){
+            $msg = "Data deleted Successfully";
+        }else{
+            $msg = "Some Error Occurred please try again";
+        }
+        return redirect()->back()->with("message",$msg);
     }
 }

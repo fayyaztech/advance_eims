@@ -53,9 +53,7 @@ class Institute extends Controller
 
     public function delete_academic_year($id)
     {
-        echo $id;
         $ac = AcademicYear::find($id);
-
         if ($ac->delete()) {
             $msg = "AcademicYear Deleted successfully";
         } else {
