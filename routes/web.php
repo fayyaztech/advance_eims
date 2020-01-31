@@ -40,3 +40,11 @@ Route::get('/sections/add','Section@add');
 Route::get('/sections/edit/{id}','Section@edit');
 Route::get('/sections/delete/{id}','Section@delete');
 
+// Row Classes
+Route::get('/rowclasses','RowClasses@list');
+Route::get('/rowclasses/add','RowClasses@add');
+Route::post('/rowclasses/save','RowClasses@save');
+Route::get('/rowclasses/edit/{id}','RowClasses@edit');
+Route::post('/rowclasses/save_updates','RowClasses@save_updates');
+Route::get('/rowclasses/delete/{id}','RowClasses@delete');
+
