@@ -14,10 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+Route::get('logout/','\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/blank','Dashboard@blank');
 Route::get('/institute_setup','Institute@institute_setup');
 Route::post('/update_institute_details','Institute@update_institute_details');
-Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard','Dashboard@dashboard');
 
