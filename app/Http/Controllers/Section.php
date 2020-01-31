@@ -34,7 +34,6 @@ class Section extends Controller
     }
     public function save_updates(Request $req)
     {
-        echo $id = $req->input('id');
         $update_data = $req->except(['_token']);
         $q = DB::table('sections')->where('id', $id)->update($update_data);
         if ($q) {
