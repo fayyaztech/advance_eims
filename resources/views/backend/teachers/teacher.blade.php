@@ -39,7 +39,7 @@
                         <td>{{$item->dob }}</td>
                         <td>{{$item->joining_date }}</td>
                         <td>
-                            <a href="/delete_teacher/{{$item->id}}" class="btn btn-primary"><i class="fa fa-edit"
+                            <a href="/edit_teacher/{{$item->id}}" class="btn btn-primary"><i class="fa fa-edit"
                                     aria-hidden="true"></i></a>
                             <a href="/delete_teacher/{{$item->id}}"
                                 onclick="return confirm('Are you sure want to delete ?');" class="btn btn-danger"><i

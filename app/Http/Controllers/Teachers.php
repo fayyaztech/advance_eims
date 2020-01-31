@@ -10,13 +10,13 @@ class Teachers extends Controller
 {
     public function add_teacher_form()
     {
-        return view("backend.teachers.teacher_form");
+        return view("backend.teachers.teacher_form", ["teacher" => '']);
     }
 
     public function teachers()
     {
         $teachers = DB::table('teachers')->get();
-        return view("backend.teachers.teacher",["teachers"=>$teachers]);
+        return view("backend.teachers.teacher", ["teachers" => $teachers]);
     }
     public function save_teacher(Request $req)
     {
@@ -46,11 +46,35 @@ class Teachers extends Controller
     }
     public function delete_teacher($id)
     {
-        if(DB::table('teachers')->where("id",$id)->delete()){
+        if (DB::table('teachers')->where("id", $id)->delete()) {
             $msg = "Data deleted Successfully";
-        }else{
+        } else {
             $msg = "Some Error Occurred please try again";
         }
-        return redirect()->back()->with("message",$msg);
+        return redirect()->back()->with("message", $msg);
+    }
+    public function edit_teacher($id)
+    {
+        $data = DB::table('teachers')->where("id", $id)->first();
+        return view("backend.teachers.teacher_form", ["teacher" => $data]);
+    }
+    public function update_teacher(Request $req)
+    {
+        $resp = DB::table('teachers')
+            ->where("id",$req->id)
+            ->update([
+                'name' => $req->name,
+                'email' => $req->email,
+                'contact' => $req->contact,
+                'address' => $req->address,
+                'dob' => $req->dob,
+                'joining_date' => $req->joining_date,
+            ]);
+        if ($resp == true) {
+            $message = "Teacher Successfully updated";
+        } else {
+            $message = "Something went wrong please try again";
+        }
+        return redirect("/teachers")->with("message", $message);
     }
 }

@@ -15,50 +15,54 @@ Institute Setup
                 <strong>{{session()->get("message")}}</strong>
             </div>
             @endif
+
             <form action="/update_institute_details" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="type" value="institute">
                 <div class="form-group">
                     <label for="name">Institute Name</label>
                     <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
-                placeholder="Institute name" value="{{ $setting['name']}}">
-                @error('name')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+                        placeholder="Institute name" value="{{ $setting['name']}}">
+                    @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="name">Contact</label>
                     <input type="text" class="form-control" name="contact" id="name" aria-describedby="helpId"
                         placeholder="Contact" value="{{ $setting['contact']}}">
-                        @error('contact')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+                    @error('contact')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="name">Email</label>
                     <input type="email" class="form-control" name="email" id="name" aria-describedby="helpId"
                         placeholder="Email" value="{{ $setting['email']}}">
-                        @error('email')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
-                  <label for="address">Address</label>
-                  <textarea class="form-control" name="address" id="address" rows="3">{{ $setting['address']}}</textarea>
+                    <label for="address">Address</label>
+                    <textarea class="form-control" name="address" id="address"
+                        rows="3">{{ $setting['address']}}</textarea>
                 </div>
                 @error('address')
                 <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-            <div class="form-group">
-            <img src="./uploads/images/{{$setting['logo']}}" class="img-fluid" alt="Logo Image" height="100px" width="100px">
-            </div>
+                @enderror
                 <div class="form-group">
-                  <label for="logo">Logo</label>
-                  <input type="file" class="form-control-file" name="logo" id="logo" placeholder="logo" aria-describedby="logo">
-                  <small id="logo" class="form-text text-muted">200X200</small>
-                  @error('logo')
-                  <div class="alert alert-danger">{{ $message }}</div>
-              @enderror
+                    <img src="./uploads/images/{{$setting['logo']}}" class="img-fluid" alt="Logo Image" height="100px"
+                        width="100px">
+                </div>
+                <div class="form-group">
+                    <label for="logo">Logo</label>
+                    <input type="file" class="form-control-file" name="logo" id="logo" placeholder="logo"
+                        aria-describedby="logo">
+                    <small id="logo" class="form-text text-muted">200X200</small>
+                    @error('logo')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
 
