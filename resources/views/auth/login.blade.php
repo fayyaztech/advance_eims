@@ -35,8 +35,9 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.html"><img class="logo-img"
-                        src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter
+            <div class="card-header text-center"><a class="navbar-brand" href="../index.html">
+                {{ Session::get("institute_name") }}
+                    </a><span class="splash-description">Please enter
                     your user information.</span></div>
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">

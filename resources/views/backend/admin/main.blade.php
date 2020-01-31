@@ -29,7 +29,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="/dashboard">{{ Session::get("logo") }}</a>
+            <a class="navbar-brand" href="/dashboard">{{ Session::get("institute_name") }}</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">

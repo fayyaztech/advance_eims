@@ -21,12 +21,16 @@ class Institute extends Controller
         $setting = DB::table('institute_settings')->where("type", "institute")->first();
         if ($setting !== null) {
             $d = json_decode($setting->meta_data);
+            $logo = "";
+            if(!empty($d->logo)){
+                $logo = $d->logo;
+            }
             $meta_data = [
                 "name" => "$d->name",
                 "contact" => "$d->contact",
                 "email" => "$d->email",
                 "address" => "$d->address",
-                "logo" => $d->logo,
+                "logo" => "$logo",
             ];
         }
         return view("backend.institute.setup", ["setting" => $meta_data]);
@@ -74,13 +78,13 @@ class Institute extends Controller
                 "logo" => "image|mimes:jpeg,png,jpg,svg,|max:200",
             ]
         );
+        $ex = $request->except(['type', '_token', 'logo']);
         if ($file = $request->file("logo")) {
             $destination_path = "uploads/images";
             $image = date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destination_path, $image);
+            $ex['logo'] = $image;
         }
-        $ex = $request->except(['type', '_token', 'logo']);
-        $ex['logo'] = $image;
         $check = institute_settings::where("type", $request->type)->first();
         if (!$check) {
             $is = new institute_settings;
@@ -99,7 +103,7 @@ class Institute extends Controller
     public function set_current_year($id)
     {
         DB::table('academic_years')->update(['is_active' => false]);
-        $q = DB::table('academic_years')->where('id',$id)->update(['is_active'=>true]);
+        $q = DB::table('academic_years')->where('id', $id)->update(['is_active' => true]);
         if ($q) {
             $msg = "AcademicYear changed successfully";
         } else {

@@ -33,6 +33,7 @@ Academic Year
                     <tr>
                         <th>Sr. no</th>
                         <th>Name</th>
+                        <th>is_active</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Action</th>
@@ -43,9 +44,17 @@ Academic Year
                     <tr>
                         <td scope="row">{{$item['id']}}</td>
                         <td>{{$item['name']}}</td>
+                        <td>@if ($item['is_active'])
+                            <span class="badge badge-success">Active</span>
+                        @else
+                        <span class="badge badge-danger">Inctive</span>
+                        @endif</td>
                         <td>{{$item['start_date']}}</td>
                         <td>{{$item['end_date']}}</td>
-                        <td><a href="/delete_academic_year/{{$item['id']}}"
+                        <td><a href="/set_current_year/{{$item['id']}}"
+                            onclick="return confirm('Are you sure want to set current academic year ?');" class="btn btn-success"><i
+                                class="fa fa-arrow-up" aria-hidden="true"></i></a>
+                            <a href="/delete_academic_year/{{$item['id']}}"
                                 onclick="return confirm('Are you sure want to delete ?');" class="btn btn-danger"><i
                                     class="fa fa-trash" aria-hidden="true"></i></a></td>
                     </tr>
