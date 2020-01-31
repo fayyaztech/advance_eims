@@ -16,13 +16,16 @@ Route::get('/', function () {
 });
 Route::get('/blank','Dashboard@blank');
 Route::get('/institute_setup','Institute@institute_setup');
-Route::get('/academic_year','Institute@academic_year');
-Route::post('/academic_year','Institute@academic_year_save');
 Route::post('/update_institute_details','Institute@update_institute_details');
-Route::get('/delete_academic_year/{id}','Institute@delete_academic_year');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard','Dashboard@dashboard');
+
+//academic years
+Route::get('/academic_year','Institute@academic_year');
+Route::get('/set_current_year/{id}','Institute@set_current_year');
+Route::post('/academic_year','Institute@academic_year_save');
+Route::get('/delete_academic_year/{id}','Institute@delete_academic_year');
 
 //teacher urls
 Route::get('/add_teacher','Teachers@add_teacher_form');

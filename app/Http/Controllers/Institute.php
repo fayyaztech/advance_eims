@@ -16,7 +16,7 @@ class Institute extends Controller
             "contact" => "",
             "email" => "",
             "address" => "",
-            "logo"=>""
+            "logo" => "",
         ];
         $setting = DB::table('institute_settings')->where("type", "institute")->first();
         if ($setting !== null) {
@@ -26,7 +26,7 @@ class Institute extends Controller
                 "contact" => "$d->contact",
                 "email" => "$d->email",
                 "address" => "$d->address",
-                "logo"=>$d->logo,
+                "logo" => $d->logo,
             ];
         }
         return view("backend.institute.setup", ["setting" => $meta_data]);
@@ -94,6 +94,17 @@ class Institute extends Controller
             $msg = "data updated";
         }
 
+        return redirect()->back()->with("message", $msg);
+    }
+    public function set_current_year($id)
+    {
+        DB::table('academic_years')->update(['is_active' => false]);
+        $q = DB::table('academic_years')->where('id',$id)->update(['is_active'=>true]);
+        if ($q) {
+            $msg = "AcademicYear changed successfully";
+        } else {
+            $msg = "operation failed";
+        }
         return redirect()->back()->with("message", $msg);
     }
 }
