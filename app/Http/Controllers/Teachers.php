@@ -10,13 +10,13 @@ class Teachers extends Controller
 {
     public function add_teacher_form()
     {
-        return view("backend.teachers.teacher_form", ["teacher" => '']);
+        return view("backend.teachers.form", ["teacher" => '']);
     }
 
     public function teachers()
     {
         $teachers = DB::table('teachers')->get();
-        return view("backend.teachers.teacher", ["teachers" => $teachers]);
+        return view("backend.teachers.list", ["teachers" => $teachers]);
     }
     public function save_teacher(Request $req)
     {
@@ -56,7 +56,7 @@ class Teachers extends Controller
     public function edit_teacher($id)
     {
         $data = DB::table('teachers')->where("id", $id)->first();
-        return view("backend.teachers.teacher_form", ["teacher" => $data]);
+        return view("backend.teachers.form", ["teacher" => $data]);
     }
     public function update_teacher(Request $req)
     {
