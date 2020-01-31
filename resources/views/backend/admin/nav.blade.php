@@ -168,10 +168,13 @@
                                 <div id="submenu-6" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/blank-page.html">Sections</a>
+                                            <a class="nav-link" href="/sections/add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Sections</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/blank-page-header.html">Row Class</a>
+                                            <a class="nav-link" href="/sections"><i class="fa fa-list-ol" aria-hidden="true"></i> Sections</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/section/add">Row Class</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/login.html">Create Class</a>

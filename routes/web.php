@@ -32,3 +32,11 @@ Route::get('/delete_teacher/{id}','Teachers@delete_teacher');
 Route::get('/edit_teacher/{id}','Teachers@edit_teacher');
 Route::post('/update_teacher','Teachers@update_teacher');
 
+//Section Routes
+Route::get('/sections','Section@view');
+Route::post('/sections/save','Section@save');
+Route::post('/sections/save_updates','Section@save_updates');
+Route::get('/sections/add','Section@add');
+Route::get('/sections/edit/{id}','Section@edit');
+Route::get('/sections/delete/{id}','Section@delete');
+
