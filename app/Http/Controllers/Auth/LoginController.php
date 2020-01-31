@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -54,6 +57,16 @@ class LoginController extends Controller
     {
         $institute_name = json_decode(DB::table('institute_settings')->where('type', 'institute')->first()->meta_data)->name;
         $academic_year = DB::table('academic_years')->where('is_active', true)->first()->is_active;
-        Session(['institute_name' => $institute_name, 'academic_year' => $academic_year]);
+        Session(['institute_name' => $institute_name, 'academic_year_id' => $academic_year]);
     }
+
+    /**
+     * Logout
+     */
+    public function logout(Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        Session::flush();
+        return redirect('/login');
+      }
 }
