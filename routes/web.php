@@ -48,3 +48,12 @@ Route::get('/rowclasses/edit/{id}','RowClasses@edit');
 Route::post('/rowclasses/save_updates','RowClasses@save_updates');
 Route::get('/rowclasses/delete/{id}','RowClasses@delete');
 
+//classes
+Route::get('/classes','Classes@list');
+Route::get('/classes/add','Classes@add');
+Route::post('/classes/save','Classes@save');
+Route::get('/classes/edit/{id}','Classes@edit');
+Route::post('/classes/save_updates','Classes@save_updates');
+Route::get('/rlasses/delete/{id}','Classes@delete');
+
+
