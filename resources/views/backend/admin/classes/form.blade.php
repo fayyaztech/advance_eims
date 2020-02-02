@@ -9,7 +9,7 @@
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <form action="{{$url ?? '/classes/save'}}" method="post">
                 @csrf
-                @if ($classes->id ?? '') <input type="hidden" name="id" value="{{$classes->id}}"> @endif
+                {{-- @if ($classes->id ?? '') <input type="hidden" name="id" value="{{$classes->id}}"> @endif --}}
                 <div class="form-group">
                     <label for="row_class_id">Select Class</label>
                     <select class="form-control" name="row_class_id" id="row_class_id">

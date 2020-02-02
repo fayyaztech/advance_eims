@@ -4,20 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
 
 class Classes extends Controller
 {
     function list() {
-        $data = DB::table('classes')->get();
+        $data = DB::table('classes')->orderBy('name','asc')->get();
         return view('backend.admin.classes.list', ['row_classes' => $data]);
     }
     public function add()
     {
-        $row_classes = DB::table('row_classes')->orderBy('name', 'asc')->get();
+        $classes = DB::table('row_classes')->orderBy('name', 'asc')->get();
         $sections = DB::table('sections')->get();
-        //form update form submit url
-        return view('backend.admin.classes.form',['row_classes'=>$row_classes,'sections'=>$sections]);
+        return view('backend.admin.classes.form',['classes'=>$classes,'sections'=>$sections]);
     }
     public function save(Request $req)
     {
