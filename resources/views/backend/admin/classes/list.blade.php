@@ -29,9 +29,9 @@
                         <td scope="row">{{$item->id}}</td>
                         <td>{{$item->name }}</td>
                         <td>
-                            <a href="/rowclasses/edit/{{$item->id}}" class="btn btn-primary"><i class="fa fa-edit"
-                                    aria-hidden="true"></i></a>
-                            <a href="/rowclasses/delete/{{$item->id}}"
+                            {{-- <a href="/rowclasses/edit/{{$item->id}}" class="btn btn-primary"><i class="fa fa-edit"
+                                    aria-hidden="true"></i></a> --}}
+                            <a href="/classes/delete/{{$item->id}}"
                                 onclick="return confirm('Are you sure want to delete ?');" class="btn btn-danger"><i
                                     class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>

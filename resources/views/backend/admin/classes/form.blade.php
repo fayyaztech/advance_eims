@@ -14,7 +14,7 @@
                     <label for="row_class_id">Select Class</label>
                     <select class="form-control" name="row_class_id" id="row_class_id">
                         <option value="">select</option>
-                        @foreach ($row_classes as $class)
+                        @foreach ($classes as $class)
                         <option value="{{$class->id}}">{{$class->name}}</option>
                         @endforeach
                     </select>

@@ -14,7 +14,7 @@ class Classes extends Controller
     }
     public function add()
     {
-        $row_classes = DB::table('row_classes')->get();
+        $row_classes = DB::table('row_classes')->orderBy('name', 'asc')->get();
         $sections = DB::table('sections')->get();
         //form update form submit url
         return view('backend.admin.classes.form',['row_classes'=>$row_classes,'sections'=>$sections]);
@@ -38,7 +38,7 @@ class Classes extends Controller
     {
         $data = DB::table('classes')->where("id", $id)->first();
         $data->url = "/classes/save_updates";
-        return view('backend.admin.classes.form', ['row_classes' => $data]);
+        return view('backend.admin.classes.form', ['classes' => $data]);
     }
     public function save_updates(Request $req)
     {
