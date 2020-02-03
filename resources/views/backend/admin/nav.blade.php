@@ -195,7 +195,7 @@
                                 <div id="subjectManagement" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/blank-page.html">Row Subject</a>
+                                            <a class="nav-link" href="/row_subjects">Row Subject</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/blank-page-header.html">Subject Group</a>

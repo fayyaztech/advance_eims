@@ -60,3 +60,8 @@ Route::get('/classes/edit/{id}','Classes@edit');
 Route::post('/classes/save_updates','Classes@save_updates');
 Route::get('/classes/delete/{id}','Classes@delete');
 
+//Row Subjects
+Route::get('/row_subjects','RowSubjects@list');
+Route::get('/row_subjects/add','RowSubjects@add');
+Route::post('/row_subjects/save','RowSubjects@save');
+Route::get('/row_subjects/delete/{id}','RowSubjects@delete');
