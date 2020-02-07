@@ -198,7 +198,7 @@
                                             <a class="nav-link" href="/row_subjects">Row Subject</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/blank-page-header.html">Subject Group</a>
+                                            <a class="nav-link" href="/subject_groups">Subject Group</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/login.html">Assign sbject to class</a>

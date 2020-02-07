@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/charts/c3charts/c3.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/flag-icon-css/flag-icon.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/datatables/css/dataTables.bootstrap4.css')}}">
+    @yield('css');
     <title>{{ Session::get("logo") }} | @yield('title')</title>
 </head>
 
@@ -240,11 +241,13 @@
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="{{asset('assets/vendor/datatables/js/dataTables.bootstrap4.min.js')}}"></script>
+
+    @yield('js');
 </body>
+
+
+
+
 
 </html>
 <script>
-$(document).ready(function () {
-    $("#dataTable").DataTable();
-});
-</script>

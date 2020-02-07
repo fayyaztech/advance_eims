@@ -65,3 +65,14 @@ Route::get('/row_subjects','RowSubjects@list');
 Route::get('/row_subjects/add','RowSubjects@add');
 Route::post('/row_subjects/save','RowSubjects@save');
 Route::get('/row_subjects/delete/{id}','RowSubjects@delete');
+
+// subject groups
+Route::get('/subject_groups','subjectGroup@list');
+Route::get('/subject_groups/add','subjectGroup@add');
+Route::post('/subject_groups/save','subjectGroup@save');
+Route::get('/subject_groups/delete/{id}','subjectGroup@delete');
+
+//assigned subjcts to the group
+Route::get('/subject_groups/assigned_subjects','subjectGroup@assigned_subjects');
+Route::post('/subject_groups/assigned_subjects/save','subjectGroup@save_assigned_subjects');
+
