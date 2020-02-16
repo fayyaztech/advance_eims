@@ -69,7 +69,6 @@
             <li class="header">SETTINGS</li>
             <li><a href="/institute_setup"><i class="fa fa-circle-o text-red"></i> <span>Institute Setup</span></a></li>
             <li><a href="/academic_year"><i class="fa fa-circle-o text-yellow"></i> <span>Academic Year</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-money"></i>

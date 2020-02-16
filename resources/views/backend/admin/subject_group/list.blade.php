@@ -1,6 +1,6 @@
 @extends('backend.admin.main')
 @section('title','Row Classes');
-@section('wrapper')
+@section('section')
 <div class="container-fluid dashboard-content">
     <div class="row">
         <a href="/subject_groups/add" type="button" class="btn btn-primary float-right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Subject</a>
