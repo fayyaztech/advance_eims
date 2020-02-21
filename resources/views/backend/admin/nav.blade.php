@@ -78,26 +78,13 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/sections/add"><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                            Add Sections</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/sections"><i class="fa fa-list-ol" aria-hidden="true"></i>
                             Sections</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/rowclasses/add"><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                            Add Row Class</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/rowclasses"><i class="fa fa-list-ol" aria-hidden="true"></i> Row
                             Class</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/classes/add"><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                            Create Class</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/classes"><i class="fa fa-list-ol" aria-hidden="true"></i> Classes</a>

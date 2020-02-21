@@ -8,14 +8,8 @@ Institute Setup
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
             <h3 class="text-center">Update Institute Settings</h3>
             @if (session()->has("message"))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>{{session()->get("message")}}</strong>
-            </div>
+                @include('layouts.notification')
             @endif
-
             <form action="/update_institute_details" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="type" value="institute">

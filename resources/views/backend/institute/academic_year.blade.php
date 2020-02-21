@@ -8,18 +8,8 @@ Academic Year
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <h3 class="text-center">Academic year</h3>
             @if (session()->has("message"))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>{{session()->get("message")}}</strong>
-            </div>
+                @include('layouts.notification')
             @endif
-
-            <script>
-                $(".alert").alert();
-
-            </script>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal"
                 data-target="#academicYear">
@@ -46,14 +36,14 @@ Academic Year
                         <td>{{$item['name']}}</td>
                         <td>@if ($item['is_active'])
                             <span class="badge badge-success">Active</span>
-                        @else
-                        <span class="badge badge-danger">Inctive</span>
-                        @endif</td>
+                            @else
+                            <span class="badge badge-danger">Inctive</span>
+                            @endif</td>
                         <td>{{$item['start_date']}}</td>
                         <td>{{$item['end_date']}}</td>
                         <td><a href="/set_current_year/{{$item['id']}}"
-                            onclick="return confirm('Are you sure want to set current academic year ?');" class="btn btn-success"><i
-                                class="fa fa-arrow-up" aria-hidden="true"></i></a>
+                                onclick="return confirm('Are you sure want to set current academic year ?');"
+                                class="btn btn-success"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
                             <a href="/delete_academic_year/{{$item['id']}}"
                                 onclick="return confirm('Are you sure want to delete ?');" class="btn btn-danger"><i
                                     class="fa fa-trash" aria-hidden="true"></i></a></td>
