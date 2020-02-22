@@ -21,7 +21,9 @@
                         <thead>
                             <tr>
                                 <th>Sr. no</th>
-                                <th>Name</th>
+                                <th>Class Name</th>
+                                <th>Assigned Groups</th>
+                                <th>Assigned Subjects</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -30,9 +32,17 @@
                             <tr>
                                 <td scope="row">{{$item->id}}</td>
                                 <td>{{$item->name }}</td>
+                                <td> @foreach (json_decode($item->subjects) ?? [] as $i)
+                                    {{$subjects[$i]}},
+                                    @endforeach</td>
+                                <td> @foreach (json_decode($item->subject_groups) ?? [] as $i)
+                                    {{$subject_groups[$i]}},
+                                    @endforeach</td>
                                 <td>
-                                    {{-- <a href="/rowclasses/edit/{{$item->id}}" class="btn btn-primary"><i
-                                        class="fa fa-edit" aria-hidden="true"></i></a> --}}
+                                    <a href="/classes/assign_subjects/{{$item->id}}"
+                                        class="btn btn-primary"><i class="fa fa-book" aria-hidden="true"></i></a>
+                                    <a href="/classes/assign_groups/{{$item->id}}"
+                                        class="btn btn-success"><i class="fa fa-list" aria-hidden="true"></i></a>
                                     <a href="/classes/delete/{{$item->id}}"
                                         onclick="return confirm('Are you sure want to delete ?');"
                                         class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>

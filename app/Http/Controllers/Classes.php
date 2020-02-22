@@ -9,7 +9,16 @@ class Classes extends Controller
 {
     function list() {
         $data = DB::table('classes')->orderBy('name','asc')->get();
-        return view('backend.admin.classes.list', ['row_classes' => $data]);
+        $sub = DB::table('row_subjects')->get();
+        foreach ($sub as $value) {
+            $subjects[$value->id] = $value->name;
+        }
+
+        $subg = DB::table('subject_groups')->get();
+        foreach ($subg as $value) {
+            $subject_groups[$value->id] = $value->name;
+        }
+        return view('backend.admin.classes.list', ['row_classes' => $data,'subjects'=>$subjects,'subject_groups'=>$subject_groups]);
     }
     public function add()
     {
@@ -50,12 +59,41 @@ class Classes extends Controller
         $q = DB::table('classes')->where("id", $id)->delete();
         return redirect('/classes')->with("message", $this->response($q,'delete'));
     }
+
+    public function assign_subjects($id)
+    {
+        // $id is class id
+        $data = DB::table('row_subjects')->get();
+        $group_name = DB::table('classes')->where('id', $id)->first()->name;
+        return view('backend.admin.classes.assign_subjects', ['class_id' => $id, 'subjects' => $data, 'class_name' => $group_name]);
+    }
+
+    public function save_assigned_subjects(Request $request)
+    {
+        $q = DB::table('classes')->where('id', $request->class_id)->update(['subjects' => json_encode($request->subjects)]);
+        return redirect('/classes')->with("message", $this->response($q, 'assign'));
+    }
+
+    public function assign_groups($id)
+    {
+        // $id is class id
+        $data = DB::table('subject_groups')->get();
+        $group_name = DB::table('classes')->where('id', $id)->first()->name;
+        return view('backend.admin.classes.assign_groups', ['class_id' => $id, 'groups' => $data, 'class_name' => $group_name]);
+    }
+
+    public function save_assigned_groups(Request $request)
+    {
+        $q = DB::table('classes')->where('id', $request->class_id)->update(['subject_groups' => json_encode($request->groups)]);
+        return redirect('/classes')->with("message", $this->response($q, ' assign'));
+    }
+
     private function response($response, $msg)
     {
         if ($response) {
             $r = "data " . $msg . "ed Successfully";
         } else {
-            $r = "failed to" . $msg . " data please try once";
+            $r = "failed to " . $msg . " data please try once";
         }
         return $r;
     }

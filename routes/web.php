@@ -56,9 +56,13 @@ Route::get('/rowclasses/delete/{id}','RowClasses@delete');
 Route::get('/classes','Classes@list');
 Route::get('/classes/add','Classes@add');
 Route::post('/classes/save','Classes@save');
-Route::get('/classes/edit/{id}','Classes@edit');
 Route::post('/classes/save_updates','Classes@save_updates');
+Route::post('/classes/save_assigned_subjects','Classes@save_assigned_subjects');
+Route::post('/classes/save_assigned_groups','Classes@save_assigned_groups');
+Route::get('/classes/edit/{id}','Classes@edit');
 Route::get('/classes/delete/{id}','Classes@delete');
+Route::get('/classes/assign_subjects/{id}','Classes@assign_subjects');
+Route::get('/classes/assign_groups/{id}','Classes@assign_groups');
 
 //Row Subjects
 Route::get('/row_subjects','RowSubjects@list');
