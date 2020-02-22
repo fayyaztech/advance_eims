@@ -18,27 +18,27 @@ class subjectGroup extends Controller
     public function save(Request $req)
     {
         $insert_data = $req->except(['_token']);
-        $q = DB::table('row_classes')
+        $q = DB::table('subject_groups')
             ->insert($insert_data);
-        return redirect('/rowclasses')->with("message", $this->response($q, 'save'));
+        return redirect('/subject_groups')->with("message", $this->response($q, 'save'));
     }
     public function edit($id)
     {
-        $data = DB::table('row_classes')->where("id", $id)->first();
-        $data->url = "/rowclasses/save_updates";
-        return view('backend.admin.row_classes.form', ['row_classes' => $data]);
+        $data = DB::table('subject_groups')->where("id", $id)->first();
+        $data->url = "/subject_groups/save_updates";
+        return view('backend.admin.subject_group.form', ['subject_group' => $data]);
     }
     public function save_updates(Request $req)
     {
         $id = $req->input("id");
         $update_data = $req->except(['_token']);
-        $q = DB::table('row_classes')->where('id', $id)->update($update_data);
-        return redirect('/rowclasses')->with("message", $this->response($q, 'update'));
+        $q = DB::table('subject_groups')->where('id', $id)->update($update_data);
+        return redirect('/subject_groups')->with("message", $this->response($q, 'update'));
     }
     public function delete($id)
     {
-        $q = DB::table('row_classes')->where("id", $id)->delete();
-        return redirect('/rowclasses')->with("message", $this->response($q,'delete'));
+        $q = DB::table('subject_groups')->where("id", $id)->delete();
+        return redirect('/subject_groups')->with("message", $this->response($q,'delete'));
     }
     private function response($response, $msg)
     {

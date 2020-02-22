@@ -70,6 +70,8 @@ Route::get('/row_subjects/delete/{id}','RowSubjects@delete');
 Route::get('/subject_groups','subjectGroup@list');
 Route::get('/subject_groups/add','subjectGroup@add');
 Route::post('/subject_groups/save','subjectGroup@save');
+Route::post('/subject_groups/save_updates','subjectGroup@save_updates');
+Route::get('/subject_groups/edit/{id}','subjectGroup@edit');
 Route::get('/subject_groups/delete/{id}','subjectGroup@delete');
 
 //assigned subjcts to the group
