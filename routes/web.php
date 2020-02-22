@@ -73,6 +73,8 @@ Route::post('/subject_groups/save','subjectGroup@save');
 Route::post('/subject_groups/save_updates','subjectGroup@save_updates');
 Route::get('/subject_groups/edit/{id}','subjectGroup@edit');
 Route::get('/subject_groups/delete/{id}','subjectGroup@delete');
+Route::get('/subject_groups/assign_subjects/{id}','subjectGroup@assign_subject');
+Route::post('/subject_groups/save_assigned_subjects','subjectGroup@save_assigned_subjects');
 
 //assigned subjcts to the group
 Route::get('/subject_groups/assigned_subjects','subjectGroup@assigned_subjects');

@@ -9,7 +9,11 @@ class subjectGroup extends Controller
 {
     function list() {
         $data = DB::table('subject_groups')->get();
-        return view('backend.admin.subject_group.list', ['subject_groups' => $data]);
+        $sub = DB::table('row_subjects')->get();
+        foreach ($sub as $value) {
+            $subjects[$value->id] = $value->name;
+        }
+        return view('backend.admin.subject_group.list', ['subject_groups' => $data,'subjects'=>$subjects]);
     }
     public function add()
     {
@@ -38,7 +42,20 @@ class subjectGroup extends Controller
     public function delete($id)
     {
         $q = DB::table('subject_groups')->where("id", $id)->delete();
-        return redirect('/subject_groups')->with("message", $this->response($q,'delete'));
+        return redirect('/subject_groups')->with("message", $this->response($q, 'delete'));
+    }
+
+    public function assign_subject($id)
+    {
+        $data = DB::table('row_subjects')->get();
+        $group_name = DB::table('subject_groups')->where('id', $id)->first()->name;
+        return view('backend.admin.subject_group.assign_subjects', ['group_id' => $id, 'subjects' => $data, 'group_name' => $group_name]);
+    }
+
+    public function save_assigned_subjects(Request $request)
+    {
+        $q = DB::table('subject_groups')->where('id', $request->group_id)->update(['subjects' => json_encode($request->subjects)]);
+        return redirect('/subject_groups')->with("message", $this->response($q, 'assign'));
     }
     private function response($response, $msg)
     {
