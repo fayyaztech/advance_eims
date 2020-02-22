@@ -18,6 +18,8 @@ class Classes extends Migration
             $table->integer('row_class_id');
             $table->integer('section_id');
             $table->string("name");
+            $table->text("subject_groups")->nullable();
+            $table->text("subjects")->nullable();
             $table->integer('academic_year_id');
             $table->timestamps();
         });

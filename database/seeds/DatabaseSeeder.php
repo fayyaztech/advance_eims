@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(section::class);
         echo "\nSeeding User rowClasses Data ......";
         $this->call(row_classes::class);
+        echo "\nSeeding User rowSubjectTableSeed Data ......";
+        $this->call(rowSubjectTableSeed::class);
     }
 }
