@@ -13,3 +13,4 @@ npm-debug.log
 yarn-error.log
 !public/uploads/index.php
 !public/uploads/images/index.php
+.nomedia
