@@ -92,3 +92,10 @@ Route::get("/parent/edit/{id}","Parents@edit");
 Route::post("/parent/update","Parents@update");
 Route::get("/parent/delete/{id}","Parents@delete");
 
+//Student
+Route::get("/student","Students@list");
+Route::get("/student/add","Students@add");
+Route::post("/student/save","Students@save");
+Route::get("/student/edit/{id}","Students@edit");
+Route::post("/student/update","Students@update");
+Route::get("/student/delete/{id}","Students@delete");

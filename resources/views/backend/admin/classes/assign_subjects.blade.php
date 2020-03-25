@@ -1,30 +1,31 @@
 @extends('backend.admin.main')
 @section('title','Subject groups');
 @section('section')
-<div class="row">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="box">
+    <div class="box-header">
         <h3 class="text-center">Assign Subjects to groups</h3>
         @if (session()->has("message"))
         @include('layouts.notification')
         @endif
     </div>
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-        <form class="box-body" action="/classes/save_assigned_subjects" method="post">
+    <div class="box-body">
+        <form action="/classes/save_assigned_subjects" method="post">
             @csrf
             <input type="hidden" name="class_id" value="{{$class_id}}">
             <div class="box box-success">
                 <div class="box-header">
-                  <h3 class="box-title">Select Sabjects to <b>{{$class_name}}</b></h3>
+                    <h3 class="box-title">Select Subjects to <b>{{$class_name}}</b></h3>
                 </div>
-            @foreach ($subjects as $item)
-            <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="subjects[]" id="" value="{{$item->id}}">{{$item->name}}
-                </label>
-            </div>
+                @foreach ($subjects as $key => $item)
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="subjects[]" id=""
+                            value="{{$subjects[$key]}}">{{$subjects[$key]['name']}}
+                    </label>
+                </div>
 
-            @endforeach
-            <button type="submit" class="btn btn-primary">save</button>
+                @endforeach
+                <button type="submit" class="btn btn-primary">save</button>
         </form>
     </div>
 </div>
