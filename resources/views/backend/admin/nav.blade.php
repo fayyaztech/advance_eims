@@ -72,6 +72,24 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-money"></i>
+                    <span>Subjects</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/row_subjects">Row Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/subject_groups">Subject Group</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-money"></i>
                     <span>Class & sections</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -91,27 +109,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-money"></i>
-                    <span>Subjects</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/row_subjects">Row Subject</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/subject_groups">Subject Group</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/login.html">Assign sbject to class</a>
-                    </li>
-                </ul>
-            </li>
             <li class="nav-item ">
                 <a class="nav-link" href="/dashboard"><i
                         class="fa fa-fw fa-users"></i> User Management</a>
