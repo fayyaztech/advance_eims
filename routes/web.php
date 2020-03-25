@@ -84,3 +84,11 @@ Route::post('/subject_groups/save_assigned_subjects','subjectGroup@save_assigned
 Route::get('/subject_groups/assigned_subjects','subjectGroup@assigned_subjects');
 Route::post('/subject_groups/assigned_subjects/save','subjectGroup@save_assigned_subjects');
 
+//parent
+Route::get("/parent","Parents@list");
+Route::get("/parent/add","Parents@form");
+Route::post("/parent/save","Parents@save");
+Route::get("/parent/edit/{id}","Parents@edit");
+Route::post("/parent/update","Parents@update");
+Route::get("/parent/delete/{id}","Parents@delete");
+
