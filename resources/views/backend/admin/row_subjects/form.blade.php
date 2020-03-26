@@ -1,5 +1,5 @@
 @extends('backend.admin.main')
-@section('title','Row Subjects');
+@section('title','Row Subjects')
 @section('section')
 <div class="container-fluid dashboard-content">
     <div class="row">
@@ -7,13 +7,13 @@
             <h3 class="text-center">Row Subjects Form</h3>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-            <form action="{{$row_Subjects->url ?? '/row_subjects/save'}}" method="post">
+            <form action="{{$row_subjects['url'] ?? '/row_subjects/save'}}" method="post">
                 @csrf
-                @if ($row_Subjects->id ?? '') <input type="hidden" name="id" value="{{$row_Subjects->id}}"> @endif
+                @if ($row_subjects->id ?? '') <input type="hidden" name="id" value="{{$row_subjects->id}}"> @endif
                 <div class="form-group">
                     <label for="name">Row Class Name</label>
                     <input type="text" class="form-control" name="name" id="name" aria-describedby="name"
-                placeholder="Row Subjects name" value="{{$row_Subjects->name ?? ''}}">
+                placeholder="Row Subjects name" value="{{$row_subjects->name ?? ''}}">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

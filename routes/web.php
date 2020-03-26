@@ -67,6 +67,8 @@ Route::get('/classes/assign_groups/{id}','Classes@assign_groups');
 //Row Subjects
 Route::get('/row_subjects','RowSubjects@list');
 Route::get('/row_subjects/add','RowSubjects@add');
+Route::get('/row_subjects/edit/{id}','RowSubjects@edit');
+Route::post('/row_subjects/update','RowSubjects@update');
 Route::post('/row_subjects/save','RowSubjects@save');
 Route::get('/row_subjects/delete/{id}','RowSubjects@delete');
 

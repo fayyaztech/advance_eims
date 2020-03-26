@@ -1,5 +1,5 @@
 @extends('backend.admin.main')
-@section('title','Row Subjects');
+@section('title','Row Subjects')
 @section('section')
 <div class="container-fluid dashboard-content">
     <div class="row">
@@ -34,6 +34,7 @@
                                         <td scope="row">{{$item->id}}</td>
                                         <td>{{$item->name }}</td>
                                         <td>
+                                            <a name="" id="" class="btn btn-primary" href="/row_subjects/edit/{{$item->id}}" role="button"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a href="/row_subjects/delete/{{$item->id}}"
                                                 onclick="return confirm('Are you sure want to delete ?');"
                                                 class="btn btn-danger"><i class="fa fa-trash"
