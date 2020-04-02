@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <label for="name">Subject group Name</label>
                     <input type="text" class="form-control" name="name" id="name" aria-describedby="name"
-                placeholder="Subject group name" value="{{$subject_group->name ?? ''}}">
+                placeholder="Subject group name" value="{{$subject_group->name ?? ''}}" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

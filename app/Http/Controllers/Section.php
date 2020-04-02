@@ -2,55 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\CustomClasses\CommonFunctions;
+use App\Section as AppSection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class Section extends Controller
 {
     public function view()
     {
-        $sections = DB::table('sections')->get();
+        $sections = AppSection::where("academic_year_id", Session::get("view_ac_year_id"))->get();
         return view('backend.admin.section.list', ['sections' => $sections]);
     }
     public function add()
     {
         return view('backend.admin.section.form');
     }
-    public function save(Request $req)
+    public function save(Request $request)
     {
-        $insert_data = $req->except(["_token"]);
-        if (DB::table('sections')->insert($insert_data)) {
-            $msg = "data added Successfully";
-        } else {
-            $msg = "failed to save data please try once";
-        }
-        return redirect('/sections')->with("message", $msg);
+        $request->request->add(['academic_year_id' => Session::get("academic_year_id")]);
+        $q = AppSection::create($request->input());
+        return redirect('/sections')->with("message", CommonFunctions::msg_response($q, "save"));
     }
     public function edit($id)
     {
-        $data = DB::table('sections')->where("id", $id)->first();
+        $data = AppSection::where('id', $id)->first();
         $data->url = "/sections/save_updates";
         return view('backend.admin.section.form', ['section' => $data]);
     }
     public function save_updates(Request $req)
     {
-        $update_data = $req->except(['_token']);
-        $q = DB::table('sections')->where('id', $id)->update($update_data);
-        if ($q) {
-            $msg = "data updated Successfully";
-        } else {
-            $msg = "failed to update data, please try once";
-        }
-        return redirect('/sections')->with("message", $msg);
+        $q = AppSection::find($req->id)->update($req->input());
+        return redirect('/sections')->with("message", CommonFunctions::msg_response($q, 'update'));
     }
     public function delete($id)
     {
-        $q = DB::table('sections')->where("id", $id)->delete();
-        if ($q) {
-            $msg = "data deleted Successfully";
-        } else {
-            $msg = "failed to delete data please try once";
-        }
-        return redirect('/sections')->with("message", $msg);
+        $q = AppSection::find($id)->delete();
+        return redirect('/sections')->with("message", CommonFunctions::msg_response($q, 'delete'));
     }
 }

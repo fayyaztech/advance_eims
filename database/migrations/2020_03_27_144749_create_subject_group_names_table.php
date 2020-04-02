@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SubjectGroups extends Migration
+class CreateSubjectGroupNamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class SubjectGroups extends Migration
      */
     public function up()
     {
-        Schema::create('subject_groups', function (Blueprint $table) {
+        Schema::create('subject_group_names', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("name");
-            $table->text("subjects")->nullable();
+            $table->unsignedBigInteger("academic_year_id");
+            $table->foreign('academic_year_id')->references('id')->on('academic_years')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class SubjectGroups extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subject_groups');
+        Schema::dropIfExists('subject_group_names');
     }
 }

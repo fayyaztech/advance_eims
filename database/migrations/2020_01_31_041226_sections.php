@@ -16,6 +16,8 @@ class Sections extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("name");
+            $table->unsignedBigInteger("academic_year_id");
+            $table->foreign('academic_year_id')->references('id')->on('academic_years')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/AdminLTE.min.css')}}">
     <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/skins/_all-skins.min.css')}}">
@@ -36,7 +37,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>{{config('app.name','Laravel')}}</span>
                 <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>{{config('app.name','Laravel')}}</span>
+                <span class="logo-lg"><b>{{config('app.name','Laravel')}}</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -174,7 +175,10 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <form action="/logout" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-default btn-flat">Sign out</button>
+                                        </form>
                                     </div>
                                 </li>
                             </ul>
@@ -206,7 +210,8 @@
             <div class="pull-right hidden-xs">
                 <b>EIMS Version</b> 3.0
             </div>
-            <strong>Copyright &copy; 2018-2019 <a href="https://sublimetechnologies.in">Sublime Technologies</a>.</strong> All rights
+            <strong>Copyright &copy; 2018-2019 <a href="https://sublimetechnologies.in">Sublime
+                    Technologies</a>.</strong> All rights
             reserved.
         </footer>
 
@@ -413,8 +418,8 @@
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset('assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- DataTables -->
-<script src="{{ asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{ asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
     <!-- SlimScroll -->
     <script src="{{ asset('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
     <!-- FastClick -->

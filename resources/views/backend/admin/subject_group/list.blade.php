@@ -1,5 +1,5 @@
 @extends('backend.admin.main')
-@section('title','Subject groups');
+@section('title','Subject groups')
 @section('section')
 <div class="container-fluid dashboard-content">
     <div class="row">
@@ -11,11 +11,18 @@
         </div>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <a name="" id="" class="btn btn-primary" href="/subject_groups/add" role="button">Add New Subject
+                <a name="" id="" class="btn btn-primary" href="/subject_groups/add" role="button">Create New Subject
                     Group</a>
                 <div class="box">
                     <div class="box-header">
-
+                        <div class="box-body">
+                            <p class="text-danger">
+                                <span class="text-danger"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    HELP::</span>
+                                <i class="fa fa-edit"></i>: Edit Group Name |
+                                <i class="fa fa-upload" aria-hidden="true"></i>: Assign subject to Group |
+                                <i class="fa fa-trash" aria-hidden="true"></i>: Delete Subject Group</p>
+                        </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -29,22 +36,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($subject_groups as $item)
+                                @foreach ($subject_groups as $group => $item)
                                 <tr>
-                                    <td scope="row">{{$item->id}}</td>
-                                    <td>{{$item->name }}</td>
+                                    <td scope="row">{{$loop->index+1}}</td>
+                                    <td>{{$group}}</td>
                                     <td>
-                                        @foreach (json_decode($item->subjects) ?? [] as $i)
-                                        {{$subjects[$i]}},
-                                        @endforeach
+                                        {{json_encode($item['subjects'])}}
                                     </td>
                                     <td>
-                                        <a href="/subject_groups/edit/{{$item->id}}" class="btn btn-primary"><i
+                                        <a href="/subject_groups/edit/{{$item['id']}}" class="btn btn-primary"><i
                                                 class="fa fa-edit" aria-hidden="true"></i></a>
-                                        <a href="/subject_groups/assign_subjects/{{$item->id}}"
+                                        <a href="/subject_groups/assign_subjects/{{$item['id']}}"
                                             class="btn btn-success"><i class="fa fa-arrow-up"
                                                 aria-hidden="true"></i></a>
-                                        <a href="/subject_groups/delete/{{$item->id}}"
+                                        <a href="/subject_groups/delete/{{$item['id']}}"
                                             onclick="return confirm('Are you sure want to delete ?');"
                                             class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </td>
@@ -57,4 +62,5 @@
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

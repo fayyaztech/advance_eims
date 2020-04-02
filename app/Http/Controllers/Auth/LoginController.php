@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\AcademicYear;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -55,9 +56,8 @@ class LoginController extends Controller
 
     private function set_required()
     {
-        $institute_name = json_decode(DB::table('institute_settings')->where('type', 'institute')->first()->meta_data)->name;
-        $academic_year = DB::table('academic_years')->where('is_active', true)->first()->is_active;
-        Session(['institute_name' => $institute_name, 'academic_year_id' => $academic_year]);
+        $academic_year = AcademicYear::where("is_active",true)->first()['id'];
+        Session(['view_ac_year_id' => $academic_year, 'academic_year_id' => $academic_year]);
     }
 
     /**

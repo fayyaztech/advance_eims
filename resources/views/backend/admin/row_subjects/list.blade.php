@@ -16,37 +16,50 @@
                         Row Subject</a>
                     <div class="box">
                         <div class="box-header">
-
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <table id="dataTable" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Sr. no</th>
-                                        <th>Name</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($row_subjects as $item)
-                                    <tr>
-                                        <td scope="row">{{$item->id}}</td>
-                                        <td>{{$item->name }}</td>
-                                        <td>
-                                            <a name="" id="" class="btn btn-primary" href="/row_subjects/edit/{{$item->id}}" role="button"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                            <a href="/row_subjects/delete/{{$item->id}}"
-                                                onclick="return confirm('Are you sure want to delete ?');"
-                                                class="btn btn-danger"><i class="fa fa-trash"
-                                                    aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="box-header">
+                                <div class="box-body">
+                                    <p class="text-danger">
+                                        <span class="text-danger"><i class="fa fa-warring" aria-hidden="true"></i>
+                                            Warrning::</span>
+                                        Make a sure subject don't has any existing records. if you delete the subject it
+                                        will delete all records releted to the subject like exam results, from groups
+                                        etc.
+                                </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <table id="dataTable" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. no</th>
+                                            <th>Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($row_subjects as $item)
+                                        <tr>
+                                            <td scope="row">{{$item->id}}</td>
+                                            <td>{{$item->name }}</td>
+                                            <td>
+                                                <a name="" id="" class="btn btn-primary"
+                                                    href="/row_subjects/edit/{{$item->id}}" role="button"><i
+                                                        class="fa fa-edit" aria-hidden="true"></i></a>
+                                                <a href="/row_subjects/delete/{{$item->id}}"
+                                                    onclick="return confirm('Are you sure want to delete ?');"
+                                                    class="btn btn-danger"><i class="fa fa-trash"
+                                                        aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        @endsection
+    </div>
+</div>
+@endsection

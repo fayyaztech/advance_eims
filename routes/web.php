@@ -73,18 +73,18 @@ Route::post('/row_subjects/save','RowSubjects@save');
 Route::get('/row_subjects/delete/{id}','RowSubjects@delete');
 
 // subject groups
-Route::get('/subject_groups','subjectGroup@list');
-Route::get('/subject_groups/add','subjectGroup@add');
-Route::post('/subject_groups/save','subjectGroup@save');
-Route::post('/subject_groups/save_updates','subjectGroup@save_updates');
-Route::get('/subject_groups/edit/{id}','subjectGroup@edit');
-Route::get('/subject_groups/delete/{id}','subjectGroup@delete');
-Route::get('/subject_groups/assign_subjects/{id}','subjectGroup@assign_subject');
-Route::post('/subject_groups/save_assigned_subjects','subjectGroup@save_assigned_subjects');
+Route::get('/subject_groups','SubjectGroups@list');
+Route::get('/subject_groups/add','SubjectGroups@add');
+Route::post('/subject_groups/save','SubjectGroups@save');
+Route::post('/subject_groups/save_updates','SubjectGroups@save_updates');
+Route::get('/subject_groups/edit/{id}','SubjectGroups@edit');
+Route::get('/subject_groups/delete/{id}','SubjectGroups@delete');
+Route::get('/subject_groups/assign_subjects/{id}','SubjectGroups@assign_subject');
+Route::post('/subject_groups/save_assigned_subjects','SubjectGroups@save_assigned_subjects');
 
 //assigned subjcts to the group
-Route::get('/subject_groups/assigned_subjects','subjectGroup@assigned_subjects');
-Route::post('/subject_groups/assigned_subjects/save','subjectGroup@save_assigned_subjects');
+Route::get('/subject_groups/assigned_subjects','SubjectGroups@assigned_subjects');
+Route::post('/subject_groups/assigned_subjects/save','SubjectGroups@save_assigned_subjects');
 
 //parent
 Route::get("/parent","Parents@list");

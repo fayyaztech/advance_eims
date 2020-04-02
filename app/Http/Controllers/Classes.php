@@ -64,8 +64,15 @@ class Classes extends Controller
     {
         // $id is class id
         $data = DB::table('row_subjects')->get();
-        $group_name = DB::table('classes')->where('id', $id)->first()->name;
-        return view('backend.admin.classes.assign_subjects', ['class_id' => $id, 'subjects' => $data, 'class_name' => $group_name]);
+        $class_name = DB::table('classes')->where('id', $id)->first();
+        $assign_subjects = json_decode($class_name->subjects);
+        foreach ($data as $item) {
+            $subjects[$item->id] = ['name'=>$item->name];
+        }
+        foreach($assign_subjects as $as){
+            array_push($subjects[$as],["status"=>'checked']);
+        }
+        return view('backend.admin.classes.assign_subjects', ['class_id' => $id, 'subjects' => $data, 'class_name' => $class_name]);
     }
 
     public function save_assigned_subjects(Request $request)

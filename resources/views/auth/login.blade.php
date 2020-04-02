@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="/"><b>{{ Session::get("institute_name") }}</b></a>
+    <a href="/"><b>{{ config("app.name") }}</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -33,7 +33,7 @@
         <div class="form-group">
             <input class="form-control form-control-lg"
              id="email" type="email" placeholder="email"
-             autocomplete="off" name="email"  value="{{ old('email') }}"
+             autocomplete="on" name="email"  value="{{ old('email') }}"
              required autocomplete="email" autofocus>
              @error('email')
                     <strong class="text-danger">{{ $message }}</strong>
@@ -42,7 +42,7 @@
 
         <div class="form-group">
             <input class="form-control form-control-lg"
-             id="password" type="text" placeholder="password"
+             id="password" type="password" placeholder="password"
              autocomplete="off" name="password"  value="{{ old('password') }}"
              required autocomplete="password" autofocus>
              @error('password')

@@ -1,5 +1,5 @@
 @extends('backend.admin.main')
-@section('title','Subject groups');
+@section('title','Subject groups')
 @section('section')
 <div class="box">
     <div class="box-header">
