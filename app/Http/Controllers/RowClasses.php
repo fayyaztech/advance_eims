@@ -2,51 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\CustomClasses\CommonFunctions;
+use App\RowClass;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class RowClasses extends Controller
 {
     function list() {
-        $data = DB::table('row_classes')->get();
+        $data = RowClass::all();
         return view('backend.admin.row_classes.list', ['row_classes' => $data]);
     }
     public function add()
     {
         return view('backend.admin.row_classes.form');
     }
-    public function save(Request $req)
+    public function save(Request $request)
     {
-        $insert_data = $req->except(['_token']);
-        $q = DB::table('row_classes')
-            ->insert($insert_data);
-        return redirect('/rowclasses')->with("message", $this->response($q, 'save'));
+        $request->request->add(['academic_year_id' => $request->session()->get("academic_year_id")]);
+        return redirect('/rowclasses')->with("message", CommonFunctions::msg_response(RowClass::create($request->input()), 'save'));
     }
     public function edit($id)
     {
-        $data = DB::table('row_classes')->where("id", $id)->first();
+        $data = RowClass::where("id", $id)->first();
         $data->url = "/rowclasses/save_updates";
         return view('backend.admin.row_classes.form', ['row_classes' => $data]);
     }
-    public function save_updates(Request $req)
+    public function save_updates(Request $request)
     {
-        $id = $req->input("id");
-        $update_data = $req->except(['_token']);
-        $q = DB::table('row_classes')->where('id', $id)->update($update_data);
-        return redirect('/rowclasses')->with("message", $this->response($q, 'update'));
+
+        $q = RowClass::find($request->id)->update($request->input());
+        return redirect('/rowclasses')->with("message", CommonFunctions::msg_response($q, 'update'));
     }
     public function delete($id)
     {
-        $q = DB::table('row_classes')->where("id", $id)->delete();
-        return redirect('/rowclasses')->with("message", $this->response($q,'delete'));
-    }
-    private function response($response, $msg)
-    {
-        if ($response) {
-            $r = "data " . $msg . "ed Successfully";
-        } else {
-            $r = "failed to" . $msg . " data please try once";
-        }
-        return $r;
+        $q = RowClass::find($id)->delete();
+        return redirect('/rowclasses')->with("message", CommonFunctions::msg_response($q, 'delete'));
     }
 }

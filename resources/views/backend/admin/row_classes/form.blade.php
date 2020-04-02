@@ -9,7 +9,7 @@
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <form action="{{$row_classes->url ?? '/rowclasses/save'}}" method="post">
                 @csrf
-                @if ($row_classes->id ?? '') <input type="hidden" name="id" value="{{$row_classes->id}}"> @endif
+                <input type="hidden" name="id" value="{{$row_classes->id ?? ''}}">
                 <div class="form-group">
                     <label for="name">Row Class Name</label>
                     <input type="text" class="form-control" name="name" id="name" aria-describedby="name"

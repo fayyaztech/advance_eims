@@ -16,6 +16,8 @@ class RowClasses extends Migration
         Schema::create('row_classes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->unsignedBigInteger("academic_year_id");
+            $table->foreign('academic_year_id')->references('id')->on('academic_years')->onDelete('cascade');
             $table->timestamps();
         });
     }
