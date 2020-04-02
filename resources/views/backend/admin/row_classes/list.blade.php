@@ -1,5 +1,5 @@
 @extends('backend.admin.main')
-@section('title','Row Classes');
+@section('title','Row Classes')
 @section('section')
 <div class="container-fluid dashboard-content">
     <div class="row">

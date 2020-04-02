@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\CustomClasses\CommonFunctions;
 use App\RowClass;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class RowClasses extends Controller
 {
     function list() {
-        $data = RowClass::all();
+        $data = RowClass::where("academic_year_id",Session::get("view_ac_year_id"))->get();
         return view('backend.admin.row_classes.list', ['row_classes' => $data]);
     }
     public function add()
