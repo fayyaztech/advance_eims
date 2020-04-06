@@ -13,12 +13,15 @@ class section extends Seeder
     {
         DB::table('sections')->insert([
             'name' => "A",
+            "academic_year_id" => 1,
         ]);
         DB::table('sections')->insert([
             'name' => "B",
+            "academic_year_id" => 1,
         ]);
         DB::table('sections')->insert([
             'name' => "C",
+            "academic_year_id" => 1,
         ]);
     }
 }

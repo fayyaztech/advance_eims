@@ -14,6 +14,7 @@ class row_classes extends Seeder
         for ($i=1; $i < 11; $i++) {
             DB::table('row_classes')->insert([
                 'name' => $i,
+                "academic_year_id" => 1,
             ]);
 
         }

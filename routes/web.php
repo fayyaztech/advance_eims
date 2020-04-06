@@ -28,14 +28,6 @@ Route::get('/set_current_year/{id}','Institute@set_current_year');
 Route::post('/academic_year','Institute@academic_year_save');
 Route::get('/delete_academic_year/{id}','Institute@delete_academic_year');
 
-//teacher urls
-Route::get('/add_teacher','Teachers@add_teacher_form');
-Route::get('/teachers','Teachers@teachers');
-Route::post('/save_teacher','Teachers@save_teacher');
-Route::get('/delete_teacher/{id}','Teachers@delete_teacher');
-Route::get('/edit_teacher/{id}','Teachers@edit_teacher');
-Route::post('/update_teacher','Teachers@update_teacher');
-
 //Section Routes
 Route::get('/sections','Section@view');
 Route::post('/sections/save','Section@save');
@@ -93,6 +85,15 @@ Route::post("/parent/save","Parents@save");
 Route::get("/parent/edit/{id}","Parents@edit");
 Route::post("/parent/update","Parents@update");
 Route::get("/parent/delete/{id}","Parents@delete");
+
+
+//Teachers
+Route::get("/teacher","Teachers@list");
+Route::get("/teacher/add","Teachers@add");
+Route::post("/teacher/save","Teachers@save");
+Route::get("/teacher/edit/{id}","Teachers@edit");
+Route::post("/teacher/update","Teachers@update");
+Route::get("/teacher/delete/{id}","Teachers@delete");
 
 //Student
 Route::get("/student","Students@list");

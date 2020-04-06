@@ -21,6 +21,8 @@ class CreateTeachersTable extends Migration
             $table->date("joining_date");
             $table->date("dob");
             $table->text("address");
+            $table->text("password");
+            $table->string("is_active");
             $table->timestamps();
         });
     }

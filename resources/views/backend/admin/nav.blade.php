@@ -33,7 +33,7 @@
                 </ul>
             </li>
             <li><a href="/parent"><i class="fa fa-users"></i> <span>Parent Management</span></a></li>
-            <li><a href="/parent"><i class="fa fa-users"></i> <span>Teacher Management</span></a></li>
+            <li><a href="/teacher"><i class="fa fa-users"></i> <span>Teacher Management</span></a></li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-list"></i>

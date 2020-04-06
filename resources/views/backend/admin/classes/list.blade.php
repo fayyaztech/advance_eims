@@ -3,6 +3,15 @@
 @section('section')
 <div class="container-fluid dashboard-content">
     <div class="row">
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <h3 class="text-center">Row Classes</h3>
             @if (session()->has("message"))
