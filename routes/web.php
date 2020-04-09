@@ -28,22 +28,6 @@ Route::get('/set_current_year/{id}','Institute@set_current_year');
 Route::post('/academic_year','Institute@academic_year_save');
 Route::get('/delete_academic_year/{id}','Institute@delete_academic_year');
 
-//Section Routes
-Route::get('/sections','Section@view');
-Route::post('/sections/save','Section@save');
-Route::post('/sections/save_updates','Section@save_updates');
-Route::get('/sections/add','Section@add');
-Route::get('/sections/edit/{id}','Section@edit');
-Route::get('/sections/delete/{id}','Section@delete');
-
-// Row Classes
-Route::get('/rowclasses','RowClasses@list');
-Route::get('/rowclasses/add','RowClasses@add');
-Route::post('/rowclasses/save','RowClasses@save');
-Route::get('/rowclasses/edit/{id}','RowClasses@edit');
-Route::post('/rowclasses/save_updates','RowClasses@save_updates');
-Route::get('/rowclasses/delete/{id}','RowClasses@delete');
-
 //classes
 Route::get('/classes','Classes@list');
 Route::get('/classes/add','Classes@add');

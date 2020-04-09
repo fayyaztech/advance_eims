@@ -17,10 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(academic_years::class);
         echo "\nSeeding User Institute Settings ......";
         $this->call(institute_settings::class);
-        echo "\nSeeding User sections Data ......";
-        $this->call(section::class);
-        echo "\nSeeding User rowClasses Data ......";
-        $this->call(row_classes::class);
         echo "\nSeeding User rowSubjectTableSeed Data ......";
         $this->call(rowSubjectTableSeed::class);
         echo "\nSeeding User GroupSubjectTableSeed Data ......";

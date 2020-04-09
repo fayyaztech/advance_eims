@@ -15,12 +15,11 @@ class Classes extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('row_class_id');
-            $table->integer('section_id');
             $table->string("name");
             $table->text("subject_groups")->nullable();
             $table->text("subjects")->nullable();
-            $table->integer('academic_year_id');
+            $table->unsignedBigInteger('academic_year_id');
+            $table->foreign("academic_year_id")->references("id")->on("academic_years")->onDelete("cascade");
             $table->timestamps();
         });
     }

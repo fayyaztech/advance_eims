@@ -11,19 +11,18 @@
     <div class="box-body">
         <form action="/classes/save_assigned_subjects" method="post">
             @csrf
-            <input type="hidden" name="class_id" value="{{$class_id}}">
+            <input type="hidden" name="class_id" value="{{$_class->id}}">
             <div class="box box-success">
                 <div class="box-header">
-                    <h3 class="box-title">Select Subjects to <b>{{$class_name}}</b></h3>
+                    <h3 class="box-title">Select Subjects to <b>{{$_class->name}}</b></h3>
                 </div>
-                @foreach ($subjects as $key => $item)
+                @foreach ($row_subjects as $item)
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" name="subjects[]" id=""
-                            value="{{$subjects[$key]}}">{{$subjects[$key]['name']}}
+                            value="{{$item->id}}">{{$item->name}}
                     </label>
                 </div>
-
                 @endforeach
                 <button type="submit" class="btn btn-primary">save</button>
         </form>

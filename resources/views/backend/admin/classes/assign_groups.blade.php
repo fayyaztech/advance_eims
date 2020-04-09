@@ -9,23 +9,26 @@
         @endif
     </div>
     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-        <form class="box-body" action="/classes/save_assigned_groups" method="post">
-            @csrf
-            <input type="hidden" name="class_id" value="{{$class_id}}">
-            <div class="box box-success">
+        <div class="box box-success">
+            <form class="box-body" action="/classes/save_assigned_groups" method="post">
+                @csrf
+                <input type="hidden" name="class_id" value="{{$class->id}}">
                 <div class="box-header">
-                  <h3 class="box-title">Select Sabjects to <b>{{$class_name}}</b></h3>
+                    <h3 class="box-title">Select Sabjects to <b>{{$class->name}}</b></h3>
                 </div>
-            @foreach ($groups as $item)
-            <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="groups[]" id="" value="{{$item->id}}">{{$item->name}}
-                </label>
-            </div>
+                <input type="hidden" name="class_id" value="{{$class->id}}">
+                @foreach ($groups as $item)
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="groups[]" id=""
+                            value="{{$item->id}}">{{$item->name}}
+                    </label>
+                </div>
 
-            @endforeach
-            <button type="submit" class="btn btn-primary">save</button>
-        </form>
+                @endforeach
+                <button type="submit" class="btn btn-primary">save</button>
+            </form>
+        </div>
     </div>
 </div>
 @endsection

@@ -97,14 +97,6 @@
                 </a>
                 <ul class="treeview-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/sections"><i class="fa fa-list-ol" aria-hidden="true"></i>
-                            Sections</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/rowclasses"><i class="fa fa-list-ol" aria-hidden="true"></i> Row
-                            Class</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/classes"><i class="fa fa-list-ol" aria-hidden="true"></i> Classes</a>
                     </li>
                 </ul>
