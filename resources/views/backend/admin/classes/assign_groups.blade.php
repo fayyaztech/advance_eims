@@ -17,16 +17,17 @@
                     <h3 class="box-title">Select Sabjects to <b>{{$class->name}}</b></h3>
                 </div>
                 <input type="hidden" name="class_id" value="{{$class->id}}">
-                @foreach ($groups as $item)
+                @foreach ($groups as $key => $item)
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" name="groups[]" id=""
-                            value="{{$item->id}}">{{$item->name}}
+                            value="{{$key}}" {{$item['checked']}}>{{$item['name']}}
                     </label>
                 </div>
 
                 @endforeach
                 <button type="submit" class="btn btn-primary">save</button>
+                <a name="" id="" class="btn btn-danger" href="/classes" role="button">Cancel</a>
             </form>
         </div>
     </div>

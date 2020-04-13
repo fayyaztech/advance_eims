@@ -14,24 +14,22 @@ use Illuminate\Support\Facades\Session;
 
 class Classes extends Controller
 {
-    function list() {
+    function list()
+    {
         $data = [];
-        $classes = ClassModel::select("classes.name as class_name", "classes.id as class_id", "rs.name as subject_name",'sgn.name as subject_group_name','rs.id as subject_id','sgn.id as group_id')
+        $classes = ClassModel::select("classes.name as class_name", "classes.id as class_id", "rs.name as subject_name", 'sgn.name as subject_group_name', 'rs.id as subject_id', 'sgn.id as group_id')
             ->leftjoin("assign_subjects_to_class as asc", "asc.class_id", "=", "classes.id")
-            ->leftjoin("assign_group_subjects_to_class as agc","agc.class_id","=","classes.id")
-            ->leftjoin("subject_group_names as sgn",'sgn.id','=','agc.subject_group_id')
+            ->leftjoin("assign_group_subjects_to_class as agc", "agc.class_id", "=", "classes.id")
+            ->leftjoin("subject_group_names as sgn", 'sgn.id', '=', 'agc.subject_group_id')
             ->leftjoin("row_subjects as rs", "rs.id", "=", "asc.subject_id")
-            ->orderBy("classes.name","ASC")
+            ->orderBy("classes.name", "ASC")
             ->get();
         foreach ($classes as $i) {
             $data[$i->class_id]["class_id"] = $i->class_id;
             $data[$i->class_id]['class_name'] = $i->class_name;
             $data[$i->class_id]['assigned_subjects'][$i->subject_id] = $i->subject_name;
-            $data[$i->class_id]['assigned_groups'][$i->group_id]=$i->subject_group_name;
+            $data[$i->class_id]['assigned_groups'][$i->group_id] = $i->subject_group_name;
         }
-        // echo "<pre>";
-        // print_r($data);
-        // die();
         return view('backend.admin.classes.list', ["data" => $data]);
     }
     public function add()
@@ -65,8 +63,19 @@ class Classes extends Controller
 
     public function assign_subjects($id)
     {
-        $data["row_subjects"] = RowSubject::all();
         $data['_class'] = ClassModel::where("id", $id)->first();
+        $row_subjects = RowSubject::all();
+        $a_sub = AssignedSubjectToClass::where("class_id", $id)->get();
+        foreach ($row_subjects as $subject) {
+            $subjects[$subject->id]["name"] = $subject->name;
+            $subjects[$subject->id]['checked'] = "";
+        }
+
+        foreach ($a_sub as $value) {
+            $subjects[$value->subject_id]['checked'] = "checked";
+        }
+
+        $data['row_subjects'] = $subjects;
         return view('backend.admin.classes.assign_subjects', $data);
     }
 
@@ -83,14 +92,21 @@ class Classes extends Controller
     public function assign_groups($id)
     {
         // $id is class id
-        $class = ClassModel::where("id",$id)->first();
-        $groups = SubjectGroup::all();
-        return view('backend.admin.classes.assign_groups', ['groups' => $groups, "class" => $class]);
+        $class = ClassModel::where("id", $id)->first();
+        $ass_groups = AssignSubjectGroupToClass::where("class_id", $id)->get();
+        foreach (SubjectGroup::all() as $group) {
+            $subject_groups[$group->id]['name'] = $group->name;
+            $subject_groups[$group->id]['checked'] = "";
+        }
+        foreach ($ass_groups as $value) {
+            $subject_groups[$value->subject_group_id]['checked'] = "checked";
+        }
+        return view('backend.admin.classes.assign_groups', ['groups' => $subject_groups,"class"=>$class]);
     }
 
     public function save_assigned_groups(Request $request)
     {
-        AssignSubjectGroupToClass::where("class_id",$request->class_id)->delete();
+        AssignSubjectGroupToClass::where("class_id", $request->class_id)->delete();
         foreach ($request->groups as $v) {
             $q = AssignSubjectGroupToClass::create(["class_id" => $request->class_id, "subject_group_id" => $v]);
         }

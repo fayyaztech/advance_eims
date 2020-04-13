@@ -13,7 +13,7 @@ class rowSubjectTableSeed extends Seeder
     {
         $subjects = ['English', 'Hindi', 'marathi', 'science', 'maths', 'geography'];
         for ($i = 0; $i < count($subjects); $i++) {
-            DB::table('row_subjects')->insert(["name" => $subjects[$i]]);
+            DB::table('row_subjects')->insert(["name" => $subjects[$i],"academic_year_id"=>1]);
         }
     }
 }

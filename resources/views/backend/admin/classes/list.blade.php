@@ -41,8 +41,8 @@
                             <tr>
                                 <td scope="row">{{$loop->index+1}}</td>
                                 <td>{{$data[$key]["class_name"]}}</td>
-                                <td>{{json_encode($data[$key]["assigned_groups"])}}</td>
-                                <td>{{json_encode($data[$key]["assigned_subjects"])}}</td>
+                                <td>{{json_encode(array_values($data[$key]["assigned_groups"]))}}</td>
+                                <td>{{json_encode(array_values($data[$key]["assigned_subjects"]))}}</td>
                                 <td>
                                     <a href="/classes/edit/{{$data[$key]['class_id']}}" class="btn btn-primary"><i
                                         class="fa fa-edit" aria-hidden="true"></i></a>

@@ -16,15 +16,16 @@
                 <div class="box-header">
                     <h3 class="box-title">Select Subjects to <b>{{$_class->name}}</b></h3>
                 </div>
-                @foreach ($row_subjects as $item)
+                @foreach ($row_subjects as $key => $item)
                 <div class="form-check form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="subjects[]" id=""
-                            value="{{$item->id}}">{{$item->name}}
+                        <input class="form-check-input" type="checkbox" name="subjects[]" value="{{$key}}" {{$item['checked']}}>{{$item["name"]}}
                     </label>
                 </div>
+
                 @endforeach
                 <button type="submit" class="btn btn-primary">save</button>
+                <a name="" id="" class="btn btn-danger" href="/classes" role="button">Cancel</a>
         </form>
     </div>
 </div>

@@ -13,7 +13,7 @@ class SubjectGroups extends Controller
 {
     function list() {
         $subject_groups = [];
-        $data = SubjectGroup::where("academic_year_id", Session::get("view_ac_year_id"))
+        $data = SubjectGroup::where("subject_group_names.academic_year_id", Session::get("view_ac_year_id"))
             ->select('subject_group_names.name as group_name', 'subject_group_names.id as group_id', 'rs.name as subject_name')
             ->leftjoin("subject_group_subjects as sgs", "subject_group_names.id", "=", "sgs.subject_group_id")
             ->leftjoin("row_subjects as rs", "sgs.row_subject_id", "=", "rs.id")
