@@ -19,6 +19,8 @@ class CreateAssignSubjectsToClassTable extends Migration
             $table->foreign("class_id")->references("id")->on("classes")->onDelete("cascade");
             $table->unsignedBigInteger("subject_id");
             $table->foreign("subject_id")->references("id")->on("row_subjects")->onDelete("cascade");
+            $table->unsignedBigInteger("teacher_id")->nullable();
+            $table->foreign("teacher_id")->references("id")->on("teachers")->onDelete("set null");
             $table->timestamps();
         });
     }
