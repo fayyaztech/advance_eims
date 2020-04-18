@@ -427,14 +427,14 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('assets/dist/js/demo.js')}}"></script>
+    {{-- <script src="{{ asset('assets/dist/js/demo.js')}}"></script> --}}
     <script>
         $(document).ready(function () {
             $('.sidebar-menu').tree()
             $("#dataTable").dataTable();
         })
-
     </script>
+    @yield('javascript')
 </body>
 
 </html>

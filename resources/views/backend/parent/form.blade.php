@@ -85,6 +85,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-danger" href="/parent" role="button">Cancle</a>
             </form>
         </div>
     </div>

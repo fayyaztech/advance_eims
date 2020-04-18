@@ -20,4 +20,5 @@ class StudentParent extends Model
         'photo',
 
     ];
+    protected $hidden = ['created_at','updated_at'];
 }
