@@ -78,6 +78,10 @@ Route::post("/teacher/save","Teachers@save");
 Route::get("/teacher/edit/{id}","Teachers@edit");
 Route::post("/teacher/update","Teachers@update");
 Route::get("/teacher/delete/{id}","Teachers@delete");
+Route::get("/teacher/assign_to_class/{id}","Teachers@assignToClass");
+Route::post("/teacher/assign_to_class/","Teachers@saveAssignToClass");
+Route::post("/teacher/assign_class_update/","Teachers@AssignClassUpdate");
+Route::post("/teacher/leave_to_class/","Teachers@leaveClass");
 
 //Student
 Route::get("/student","Students@list");

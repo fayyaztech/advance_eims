@@ -30,7 +30,7 @@
             $(".alert").alert();
 
         </script>
-        <table class="table" id="dataTable">
+        <table class="table dataTable" id="dataTable">
             <thead>
                 <tr>
                     <th>Sr. no</th>
@@ -38,6 +38,7 @@
                     <th>Contact</th>
                     <th>Email</th>
                     <th>Address</th>
+                    <th>Assigned Class</th>
                     <th>Date Of Birth</th>
                     <th>Joining Date</th>
                     <th>Action</th>
@@ -51,6 +52,7 @@
                     <td>{{$item->contact }}</td>
                     <td>{{$item->email }}</td>
                     <td>{{$item->address }}</td>
+                    <td>{{$item->class_name}}</td>
                     <td>{{$item->dob }}</td>
                     <td>{{$item->joining_date }}</td>
                     <td>
@@ -59,6 +61,8 @@
                         <a href="/teacher/delete/{{$item->id}}"
                             onclick="return confirm('Are you sure want to delete ?');" class="btn btn-danger"><i
                                 class="fa fa-trash" aria-hidden="true"></i></a>
+                        <a href="/teacher/assign_to_class/{{$item->id}}"><i class="fa fa-table btn btn-primary"
+                                aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 @endforeach
