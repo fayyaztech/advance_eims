@@ -90,3 +90,6 @@ Route::post("/student/save","Students@save");
 Route::get("/student/edit/{id}","Students@edit");
 Route::post("/student/update","Students@update");
 Route::get("/student/delete/{id}","Students@delete");
+Route::get("/student/class/{id}",'Students@class');
+Route::get('//student/load_optional_subjects/{class_id}','Students@load_optional_subjects');
+Route::post("/student/save_class",'Students@save_class');
