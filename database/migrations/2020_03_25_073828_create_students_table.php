@@ -18,21 +18,19 @@ class CreateStudentsTable extends Migration
             $table->string("photo");
             $table->string("name");
             $table->string("lname");
-            $table->integer("parent_id");
+            $table->unsignedBigInteger("parent_id")->nullable();
+            $table->foreign("parent_id")->references('id')->on('parents')->onDelete('SET NULL');
             $table->string("mother");
-            $table->string("aadhaar");
-            $table->date("date_of_birth");
             $table->string("gender");
-            $table->string("place_of_birth");
+            $table->date("date_of_birth");
             $table->string("nationality");
             $table->string("mother_tongue");
+            $table->string("place_of_birth");
+            $table->string("aadhaar");
             $table->string("previous_school");
-            $table->string("address_of_school");
             $table->string("previous_exam");
             $table->string("exam_percentage");
-            $table->string("reason_of_leaving");
-            $table->string("resident_address");
-            $table->string("alternative_address");
+            $table->string("resident_address")->nullable();
             $table->timestamps();
         });
     }

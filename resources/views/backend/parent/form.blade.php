@@ -7,7 +7,8 @@
             <h3 class="text-center">Add parent Form</h3>
         </div>
         <div class="box-body">
-            <form action="@if ($parent) /parent/update @else /parent/save @endif" method="post" enctype="multipart/form-data">
+            <form action="@if ($parent) /parent/update @else /parent/save @endif" method="post"
+                enctype="multipart/form-data">
                 @csrf
                 @if ($parent) <input type="hidden" name="id" value="{{$parent->id}}"> @endif
                 <div class="form-group  @error('name') has-error @enderror">
@@ -33,8 +34,7 @@
                 </div>
                 <div class="form-group @error('Qualification') has-error @enderror">
                     <label class="col-form-label" for="qualification">Qualification</label>
-                    <input type="text" name="qualification"
-                        class="form-control"  id="qualification"
+                    <input type="text" name="qualification" class="form-control" id="qualification"
                         value="@if ($parent){{ $parent->qualification }}@else {{old("qualification")}} @endif">
                     <div class="help-block">@error('qualification'){{ $message }}@enderror
                     </div>
@@ -42,8 +42,7 @@
 
                 <div class="form-group @error('aadhaar') has-error @enderror">
                     <label class="col-form-label" for="aadhaar">Aadhaar</label>
-                    <input type="number" name="aadhaar"
-                        class="form-control"  id="aadhaar"
+                    <input type="number" name="aadhaar" class="form-control" id="aadhaar"
                         value="@if ($parent){{ $parent->aadhaar }}@else{{old("aadhaar")}}@endif">
                     <div class="help-block">@error('aadhaar'){{ $message }}@enderror
                     </div>
@@ -51,8 +50,7 @@
 
                 <div class="form-group @error('name_of_organization') has-error @enderror">
                     <label class="col-form-label" for="name_of_organization">Work At</label>
-                    <input type="text" name="name_of_organization"
-                        class="form-control"  id="name_of_organization"
+                    <input type="text" name="name_of_organization" class="form-control" id="name_of_organization"
                         value="@if ($parent){{ $parent->name_of_organization }}@else{{old("name_of_organization")}}@endif">
                     <div class="help-block">@error('name_of_organization'){{ $message }}@enderror
                     </div>
@@ -60,8 +58,7 @@
 
                 <div class="form-group @error('occupation') has-error @enderror">
                     <label class="col-form-label" for="occupation">Occupation</label>
-                    <input type="text" name="occupation"
-                        class="form-control"  id="occupation"
+                    <input type="text" name="occupation" class="form-control" id="occupation"
                         value="@if ($parent){{ $parent->occupation }}@else{{old("occupation")}}@endif">
                     <div class="help-block">@error('occupation'){{ $message }}@enderror
                     </div>
@@ -69,8 +66,7 @@
 
                 <div class="form-group  @error('address') has-error @enderror">
                     <label class="col-form-label" for="address">Address</label>
-                    <textarea type="text" required="" name="address"
-                        class="form-control"
+                    <textarea type="text" required="" name="address" class="form-control"
                         id="address">@if ($parent){{ $parent->address }}@else{{old("address")}}@endif</textarea>
                     <div class="help-block">@error('address'){{ $message }}@enderror
                     </div>
@@ -78,8 +74,7 @@
 
                 <div class="form-group @error('photo') has-error @enderror">
                     <label class="col-form-label" for="photo">Upload Photo</label>
-                    <input type="file" name="photo"
-                        class="form-control" id="photo"
+                    <input type="file" name="photo" class="form-control" id="photo"
                         value="@if ($parent){{ $parent->photo }}@endif">
                     <div class="help-block">@error('photo'){{ $message }}@enderror
                     </div>

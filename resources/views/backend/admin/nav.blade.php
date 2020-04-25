@@ -26,10 +26,10 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/students"><i class="fa fa-users"></i> Students List</a></li>
-                    <li><a href="/students"><i class="fa fa-plus-circle"></i> Add Students</a></li>
-                    <li><a href="/students"><i class="fa fa-users"></i> Students Attendance</a></li>
-                    <li><a href="/students"><i class="fa fa-users"></i> Students Promot</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> student List</a></li>
+                    <li><a href="/student"><i class="fa fa-plus-circle"></i> Add student</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> student Attendance</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> student Promot</a></li>
                 </ul>
             </li>
             <li><a href="/parent"><i class="fa fa-users"></i> <span>Parent Management</span></a></li>
@@ -43,8 +43,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/students"><i class="fa fa-users"></i> Exam List</a></li>
-                    <li><a href="/students"><i class="fa fa-plus-circle"></i> Exam Typeli</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> Exam List</a></li>
+                    <li><a href="/student"><i class="fa fa-plus-circle"></i> Exam Typeli</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -56,11 +56,11 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/students"><i class="fa fa-users"></i> Create Fees</a></li>
-                    <li><a href="/students"><i class="fa fa-users"></i> Apply Fees</a></li>
-                    <li><a href="/students"><i class="fa fa-users"></i> Collect Fees</a></li>
-                    <li><a href="/students"><i class="fa fa-users"></i> Add income</a></li>
-                    <li><a href="/students"><i class="fa fa-users"></i> Add Expenses</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> Create Fees</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> Apply Fees</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> Collect Fees</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> Add income</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> Add Expenses</a></li>
 
                 </ul>
             </li>
