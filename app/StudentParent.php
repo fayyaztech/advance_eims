@@ -9,7 +9,8 @@ class StudentParent extends Model
     protected $table = "parents";
 
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'contact',
         'email',
         'address',
