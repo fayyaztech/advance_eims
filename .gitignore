@@ -15,3 +15,4 @@ yarn-error.log
 !public/uploads/images/index.php
 .nomedia
 public/uploads/*
+.vscode/settings.json
