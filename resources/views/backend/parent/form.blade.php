@@ -5,20 +5,36 @@
     <div class="box">
         <div class="boc-header">
             <h3 class="text-center">Add parent Form</h3>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
         <div class="box-body">
             <form action="@if ($parent) /parent/update @else /parent/save @endif" method="post"
                 enctype="multipart/form-data">
                 @csrf
                 @if ($parent) <input type="hidden" name="id" value="{{$parent->id}}"> @endif
-                <div class="form-group  @error('name') has-error @enderror">
-                    <label class="col-form-label" for="validationCustom02">Name</label>
-                    <input type="text" required="" name="name" class="form-control
-                id=" validationCustom02" value="@if($parent){{$parent->name}}@else {{old("name")}} @endif">
-                    <div class="help-block">@error('name'){{ $message }}@enderror
+                <div class="form-group  @error('first_name') has-error @enderror">
+                    <label class="col-form-label" for="validationCustom02">First Name</label>
+                    <input type="text" required="" name="first_name" class="form-control
+                id=" validationCustom02" value="@if($parent){{$parent->first_name}}@else {{old("first_name")}} @endif">
+                    <div class="help-block">@error('first_name'){{ $message }}@enderror
                     </div>
                 </div>
-                <div class="form-group @error('contact') has-error @enderror">
+                <div class="form-group  @error('last_name') has-error @enderror">
+                    <label class="col-form-label" for="validationCustom02">Last Name</label>
+                    <input type="text" required="" name="last_name" class="form-control
+                id=" validationCustom02" value="@if($parent){{$parent->last_name}}@else {{old("last_name")}} @endif">
+                    <div class="help-block">@error('last_name'){{ $message }}@enderror
+                    </div>
+                </div>
+                <div class="form-group @error('contact') has-erroranticipation @enderror">
                     <label class="col-form-label" for="contact">Contact</label>
                     <input type="text" required="" name="contact" class="form-control" id="contact"
                         value="@if ($parent){{$parent->contact}}@else {{old("contact")}} @endif">
@@ -72,11 +88,11 @@
                     </div>
                 </div>
 
-                <div class="form-group @error('photo') has-error @enderror">
-                    <label class="col-form-label" for="photo">Upload Photo</label>
-                    <input type="file" name="photo" class="form-control" id="photo"
+                <div class="form-group @error('upload_photo') has-error @enderror">
+                    <label class="col-form-label" for="upload_photo">Upload Photo</label>
+                    <input type="file" name="upload_photo" class="form-control" id="upload_photo"
                         value="@if ($parent){{ $parent->photo }}@endif">
-                    <div class="help-block">@error('photo'){{ $message }}@enderror
+                    <div class="help-block">@error('upload_photo'){{ $message }}@enderror
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
