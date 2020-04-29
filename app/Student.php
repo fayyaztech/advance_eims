@@ -28,4 +28,6 @@ class Student extends Model
         'ifsc',
         'gr_no',
     ];
+
+    protected $hidden = ['created_at','updated_at'];
 }

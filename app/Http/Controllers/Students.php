@@ -91,7 +91,7 @@ class Students extends Controller
     public function delete($id)
     {
         $q = Student::find($id)->delete();
-        return redirect('/student')->with('message',CommonFunctions::msg_response($q,'delete'));
+        return redirect('/student')->with('message', CommonFunctions::msg_response($q, 'delete'));
     }
     public function save(Request $request)
     {
@@ -260,5 +260,48 @@ class Students extends Controller
         }
 
         return redirect("/student")->with("message", "class and Subject Updated Successfully");
+    }
+
+    public function profile($id)
+    {
+        $data['profile'] =  Student::select(
+            'students.photo as photo',
+            'students.aadhaar',
+            'gr_no',
+            'students.first_name',
+            'students.id as std_id',
+            'p.first_name as middle_name',
+            'p.last_name',
+            'p.address',
+            'mother',
+            'gender',
+            'date_of_birth',
+            'contact',
+            'email',
+            'c.name as class_name',
+            'p.id as p_id',
+            'date_of_admission',
+            'nationality',
+            'mother_tongue',
+            'place_of_birth',
+            'last_attended_school',
+            'last_attended_class',
+            'exam_percentage',
+            'date_of_leaving',
+            'bank_name',
+            'account_no',
+            'ifsc',
+            'tc_printed',
+            'students.is_active',
+            'students.created_at',
+            'students.updated_at'
+        )
+            ->where('students.id', $id)
+            ->where('c.academic_year_id', '=', Session::get('view_ac_year_id'))
+            ->leftjoin('parents as p', 'p.id', '=', 'students.parent_id')
+            ->leftjoin('class_students as cs', 'cs.student_id', '=', 'students.id')
+            ->leftjoin('classes as c', 'c.id', '=', 'cs.class_id')
+            ->first();
+        return view('backend.student.profile', $data);
     }
 }

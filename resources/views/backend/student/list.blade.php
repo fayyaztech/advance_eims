@@ -51,7 +51,7 @@
                                 onclick="return confirm('Are you sure want to delete ?');" class="btn btn-danger"><i
                                     class="fa fa-trash" aria-hidden="true"></i></a>
                             <button type="button" class="btn btn-primary"
-                                onclick="profileInfo('{{json_encode($item)}}');"><i class="fa fa-info-circle"
+                            onclick="studentInfo({{$item->std_id}});"><i class="fa fa-info-circle"
                                     aria-hidden="true"></i>
                             </button>
                         </td>
@@ -86,6 +86,17 @@
         $(".modal-body").html(loading);
         $("#parentProfile").modal("show");
         $.get("/parent/profile/" + id,
+            function (data, ) {
+                $(".modal-body").html(data);
+            }
+        );
+    }
+    function studentInfo(id) {
+        var loading =
+            '<div class="overlay text-center"><i class="fa fa-refresh fa-spin fa-3x"></i>Loading Please wait...</div>';
+        $(".modal-body").html(loading);
+        $("#parentProfile").modal("show");
+        $.get("/student/profile/" + id,
             function (data, ) {
                 $(".modal-body").html(data);
             }

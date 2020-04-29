@@ -98,3 +98,4 @@ Route::get("/student/pending_admissions","Students@pending_admissions");
 Route::get("/student/all","Students@all_students");
 Route::post('/student/class/update','Students@class_update');
 Route::post('/student/update','Students@update');
+Route::get("/student/profile/{id}","Students@profile");
