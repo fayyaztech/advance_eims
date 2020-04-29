@@ -38,6 +38,7 @@ class Student extends Seeder
                 "bank_name" => $faker->bank,
                 "account_no" => $faker->bankAccountNumber,
                 "ifsc" => $faker->swiftBicNumber,
+                'is_active'=>1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
