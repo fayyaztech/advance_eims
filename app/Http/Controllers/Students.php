@@ -82,7 +82,7 @@ class Students extends Controller
     {
         $data['url'] = '/student/update';
         $data['update_heading'] = "Student Information Update Form";
-        $data['student'] = Student::find($id)->first();
+        $data['student'] = Student::where('id',$id)->first();
         $data['parent'] = StudentParent::all();
         old('first_name', $data['student']->first_name);
         return view('backend.student.form', $data);
