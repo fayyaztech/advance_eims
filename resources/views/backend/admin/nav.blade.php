@@ -26,9 +26,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/student"><i class="fa fa-users"></i> student List</a></li>
-                    <li><a href="/student"><i class="fa fa-plus-circle"></i> Add student</a></li>
-                    <li><a href="/student"><i class="fa fa-users"></i> student Attendance</a></li>
+                    <li><a href="/student"><i class="fa fa-users"></i> Current Academic Student List</a></li>
+                    <li><a href="/student/pending_admissions"><i class="fa fa-plus-circle"></i>Pending Admissions</a></li>
+                    <li><a href="/student/all"><i class="fa fa-users"></i> All Students</a></li>
                     <li><a href="/student"><i class="fa fa-users"></i> student Promot</a></li>
                 </ul>
             </li>

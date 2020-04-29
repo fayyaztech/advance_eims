@@ -20,7 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string("last_name")->nullable();
             $table->string("gr_no");
             $table->unsignedBigInteger("parent_id")->nullable();
-            $table->foreign("parent_id")->references('id')->on('parents')->onDelete('SET NULL');
+            $table->foreign("parent_id")->references('id')->on('parents')->onDelete('cascade');
             $table->string("mother");
             $table->string("gender");
             $table->date("date_of_birth");
@@ -40,7 +40,7 @@ class CreateStudentsTable extends Migration
             $table->string("account_no")->nullable();
             $table->string("ifsc")->nullable();
             $table->integer("tc_printed")->default(0);
-            $table->integer("is_active")->default(1);
+            $table->integer("is_active")->default(2);
             $table->timestamps();
         });
     }

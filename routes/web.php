@@ -67,6 +67,7 @@ Route::get("/parent","Parents@list");
 Route::get("/parent/add","Parents@form");
 Route::post("/parent/save","Parents@save");
 Route::get("/parent/edit/{id}","Parents@edit");
+Route::get("/parent/profile/{id}","Parents@profile");
 Route::post("/parent/update","Parents@update");
 Route::get("/parent/delete/{id}","Parents@delete");
 
@@ -83,7 +84,7 @@ Route::post("/teacher/assign_to_class/","Teachers@saveAssignToClass");
 Route::post("/teacher/assign_class_update/","Teachers@AssignClassUpdate");
 Route::post("/teacher/leave_to_class/","Teachers@leaveClass");
 
-//Student
+//Students
 Route::get("/student","Students@list");
 Route::get("/student/add","Students@add");
 Route::post("/student/save","Students@save");
@@ -91,5 +92,9 @@ Route::get("/student/edit/{id}","Students@edit");
 Route::post("/student/update","Students@update");
 Route::get("/student/delete/{id}","Students@delete");
 Route::get("/student/class/{id}",'Students@class');
-Route::get('//student/load_optional_subjects/{class_id}','Students@load_optional_subjects');
+Route::get('//student/load_optional_subjects','Students@load_optional_subjects');
 Route::post("/student/save_class",'Students@save_class');
+Route::get("/student/pending_admissions","Students@pending_admissions");
+Route::get("/student/all","Students@all_students");
+Route::post('/student/class/update','Students@class_update');
+Route::post('/student/update','Students@update');

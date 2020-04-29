@@ -7,9 +7,10 @@
             <h3 class="text-center">Student Admission (Form 2 Class Form)</h3>
         </div>
         <div class="box-body row">
-            <form action="/student/save_class" method="post">
+            <form action="{{$url ?? '/student/save_class'}}" method="post">
                 @csrf
                 <input type="hidden" name="student_id" value="{{$student_id}}">
+                <input type="hidden" name="class_student_id" value="{{$class_student_id ?? ''}}">
                 <div class="col-lg-12">
                     <div class="form-group col-lg-6">
                         <label>Select Class</label>
@@ -18,7 +19,8 @@
                             required>
                             <option selected="selected" value=""> - select -</option>
                             @foreach ($classes as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
+                            <option value="{{$item->id}}" @if ($item->id == $class_id)selected
+                                @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -40,10 +42,17 @@
 @endsection
 @section('javascript')
 <script>
+    $(document).ready(function () {
+        var classData = {'class_id' : '{{$class_id}}', 'class_student_id': '{{$class_student_id ?? ''}}'};
+        $.get("/student/load_optional_subjects/",classData, function (data, ) {
+            $("#optional_subjects").html(data);
+        });
+
+    });
     $('.select2').select2();
     $("#loadOptionalSubjects").change(function () {
-        var classId = $(this).val();
-        $.get("/student/load_optional_subjects/" + classId, function (data, ) {
+        var classData = {'class_id' : $(this).val(), 'class_student_id': '{{$class_student_id ?? ''}}'};
+        $.get("/student/load_optional_subjects/",classData, function (data, ) {
             $("#optional_subjects").html(data);
         });
     })
