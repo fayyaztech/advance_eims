@@ -27,7 +27,7 @@
                         <th>Contact</th>
                         <th>Email</th>
                         <th>Class</th>
-                        <th class="col-lg-4">Action</th>
+                        <th class="col-lg-5">Action</th>
                     </tr>
                 </thead>
                 <tbody>

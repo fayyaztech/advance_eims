@@ -27,7 +27,7 @@ class Student extends Seeder
                 "gender" => $faker->gender,
                 "date_of_birth" => $faker->date("Y-m-d", now()),
                 "date_of_admission" => $faker->date("Y-m-d", now()),
-                "nationality" => 'Indian',
+                "nationality" => $faker->country,
                 "mother_tongue" => $faker->languageCode,
                 "place_of_birth" => $faker->city,
                 "aadhaar" => $faker->bankRoutingNumber,
