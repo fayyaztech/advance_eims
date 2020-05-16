@@ -104,7 +104,7 @@
                             <b>TC Printed</b> <a class="pull-right">{{$profile->tc_printed}}</a>
                         </li>
                         <li class="list-group-item">
-                            <b>Student Status</b> <a class="pull-right">{{$profile->is_active}}</a>
+                            <b>Student Status</b> <a class="pull-right">{{statusUiResponse($profile->is_active)}}</a>
                         </li>
                     </ul>
                 <hr>

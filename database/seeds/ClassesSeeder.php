@@ -17,7 +17,7 @@ class ClassesSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $data[] = [
                 'name' => rand(1, 9) . '' . substr(str_shuffle("ABCD"), 0, 1),
-                'academic_year_id' => rand(1, 3)
+                'academic_year_id' => 1
             ];
         }
 

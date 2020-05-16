@@ -17,9 +17,10 @@ class Students extends Controller
 {
     public function list()
     {
-        $data['students'] = Student::select(
-            'students.first_name as name',
-            'students.id as std_id',
+        $data['students'] = ClassModel::select(
+            'c.name as class_name',
+            's.first_name as name',
+            's.id as std_id',
             'p.first_name as father_name',
             'p.last_name',
             'mother',
@@ -27,14 +28,16 @@ class Students extends Controller
             'email',
             'c.name as class_name',
             'p.id as p_id'
-        )
-            ->where('students.is_active', 1)
-            ->where('c.academic_year_id', '=', Session::get('view_ac_year_id'))
-            ->leftjoin('parents as p', 'p.id', '=', 'students.parent_id')
-            ->leftjoin('class_students as cs', 'cs.student_id', '=', 'students.id')
-            ->leftjoin('classes as c', 'c.id', '=', 'cs.class_id')
-            ->get();
+            )
+        ->where('c.academic_year_id', '=', Session::get('view_ac_year_id'))
+        ->where('s.is_active', 1)
+        ->leftjoin('class_students as cs', 'cs.class_id', '=', 'c.id')
+        ->leftjoin('students as s', 'cs.student_id', '=', 's.id')
+        ->leftjoin('parents as p', 'p.id', '=', 's.parent_id')
+        ->get();
 
+        // return $data['students'];
+        // die();
         $data['academic_year'] = AcademicYear::where('id', Session::get('view_ac_year_id'))->first()->name;
         return view('backend.student.list', $data);
     }
@@ -75,14 +78,14 @@ class Students extends Controller
 
         $q = Student::find($request->id)->update($request->input());
 
-        return redirect('/student')->with("message", CommonFunctions::msg_response($q, 'update'));
+        return redirect()->back()->with("message", CommonFunctions::msg_response($q, 'update'));
     }
 
     public function edit($id)
     {
         $data['url'] = '/student/update';
         $data['update_heading'] = "Student Information Update Form";
-        $data['student'] = Student::where('id',$id)->first();
+        $data['student'] = Student::where('id', $id)->first();
         $data['parent'] = StudentParent::all();
         old('first_name', $data['student']->first_name);
         return view('backend.student.form', $data);
@@ -124,6 +127,7 @@ class Students extends Controller
     }
     public function pending_admissions()
     {
+        $data['all'] = "all";
         $data['students'] = Student::select(
             'students.first_name as name',
             'students.id as std_id',
@@ -142,6 +146,7 @@ class Students extends Controller
 
     public function all_students()
     {
+        $data['all'] = 'all';
         $data['students'] = Student::select(
             'students.first_name as name',
             'students.id as std_id',
@@ -262,7 +267,11 @@ class Students extends Controller
         return redirect("/student")->with("message", "class and Subject Updated Successfully");
     }
 
-    public function profile($id)
+    /**Profile function can return only assigned students to class
+     * @param int $id
+     * @return View 
+     */
+    public function profile(int $id)
     {
         $data['profile'] =  Student::select(
             'students.photo as photo',
@@ -301,6 +310,49 @@ class Students extends Controller
             ->leftjoin('parents as p', 'p.id', '=', 'students.parent_id')
             ->leftjoin('class_students as cs', 'cs.student_id', '=', 'students.id')
             ->leftjoin('classes as c', 'c.id', '=', 'cs.class_id')
+            ->first();
+        return view('backend.student.profile', $data);
+    }
+
+    /** this function user to show student profile into all section. including unassigned class 
+     * @param int $id as id of a student
+     * @param String $all is a string to identify 
+     */
+    public function profile_all($id, $all)
+    {
+        $data['profile'] =  Student::select(
+            'students.photo as photo',
+            'students.aadhaar',
+            'gr_no',
+            'students.first_name',
+            'students.id as std_id',
+            'p.first_name as middle_name',
+            'p.last_name',
+            'p.address',
+            'mother',
+            'gender',
+            'date_of_birth',
+            'contact',
+            'email',
+            'p.id as p_id',
+            'date_of_admission',
+            'nationality',
+            'mother_tongue',
+            'place_of_birth',
+            'last_attended_school',
+            'last_attended_class',
+            'exam_percentage',
+            'date_of_leaving',
+            'bank_name',
+            'account_no',
+            'ifsc',
+            'tc_printed',
+            'students.is_active',
+            'students.created_at',
+            'students.updated_at'
+        )
+            ->where('students.id', $id)
+            ->leftjoin('parents as p', 'p.id', '=', 'students.parent_id')
             ->first();
         return view('backend.student.profile', $data);
     }

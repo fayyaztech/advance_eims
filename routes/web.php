@@ -99,3 +99,4 @@ Route::get("/student/all","Students@all_students");
 Route::post('/student/class/update','Students@class_update');
 Route::post('/student/update','Students@update');
 Route::get("/student/profile/{id}","Students@profile");
+Route::get("/student/profile/{id}/{all}","Students@profile_all");

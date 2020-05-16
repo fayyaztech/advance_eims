@@ -96,7 +96,7 @@
             '<div class="overlay text-center"><i class="fa fa-refresh fa-spin fa-3x"></i>Loading Please wait...</div>';
         $(".modal-body").html(loading);
         $("#parentProfile").modal("show");
-        $.get("/student/profile/" + id,
+        $.get("/student/profile/" + id+'/{{$all ?? ""}}',
             function (data, ) {
                 $(".modal-body").html(data);
             }
