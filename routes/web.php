@@ -100,3 +100,12 @@ Route::post('/student/class/update','Students@class_update');
 Route::post('/student/update','Students@update');
 Route::get("/student/profile/{id}","Students@profile");
 Route::get("/student/profile/{id}/{all}","Students@profile_all");
+
+
+//calendar
+Route::get("/calendar","Calendar@view");
+Route::get("/calendar/event_type","Calendar@event_type");
+Route::get("/calendar/add_event","Calendar@add_event");
+Route::post("/calendar/event_type/save","Calendar@save_event_type");
+Route::post("/calendar/event_type/update","Calendar@update_event_type");
+Route::get("/calendar/event_type/delete/{id}",'Calendar@delete_event_type');
