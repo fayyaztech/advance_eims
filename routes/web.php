@@ -109,3 +109,10 @@ Route::get("/calendar/add_event","Calendar@add_event");
 Route::post("/calendar/event_type/save","Calendar@save_event_type");
 Route::post("/calendar/event_type/update","Calendar@update_event_type");
 Route::get("/calendar/event_type/delete/{id}",'Calendar@delete_event_type');
+
+//event routes
+Route::post("/calendar/event/save/","Calendar@saveEvent");
+Route::post("/calendar/event/update/","Calendar@updateEvent");
+Route::get("/calendar/event/delete/{id}","Calendar@deleteEvent");
+//get calendar json
+Route::get("/calendar/event/json","Calendar@json");

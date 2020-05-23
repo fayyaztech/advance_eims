@@ -22,6 +22,10 @@
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/skins/_all-skins.min.css')}}">
 
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="/assets/bower_components/fullcalendar/dist/fullcalendar.min.css">
+    <link rel="stylesheet" href="/assets/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
     <!-- Select2 -->
     <link rel="stylesheet" href="/assets/bower_components/select2/dist/css/select2.min.css">
 
@@ -236,6 +240,13 @@
     <script src="{{ asset('assets/bower_components/fastclick/lib/fastclick.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/dist/js/adminlte.min.js')}}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- FastClick -->
+    <script src="/assets/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- fullCalendar -->
+    <script src="/assets/bower_components/moment/moment.js"></script>
+    <script src="/assets/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
     <!-- Select2 -->
     <script src="/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -245,6 +256,7 @@
             $('.sidebar-menu').tree()
             $("#dataTable").dataTable();
         })
+
     </script>
     @yield('javascript')
 </body>
